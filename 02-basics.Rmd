@@ -1,0 +1,59 @@
+# Basic concepts 
+
+
+This section introduces some basic concepts and provides useful tips for managing your research data.
+
+## What is Data Management? {-}
+
+Data management refers to the comprehensive set of practices, policies, and processes used to manage data throughout its lifecycle [@corea2019data, chapter 1]. This involves ensuring that data is collected, stored, processed, and maintained in a way that it can be effectively used for analytical purposes. Good data management is crucial for enabling accurate, reliable, and meaningful analysis.
+
+Key components of data management in data analytics include:
+
+1. **Data Collection and Acquisition**: Gathering data from various sources, which can include databases, APIs, sensors, web scraping, and more. The goal is to ensure the data is collected in a systematic and consistent manner.
+
+2. **Data Storage**: Utilizing databases, data warehouses, data lakes, or cloud storage solutions to store collected data securely and efficiently. This ensures that data is easily accessible for analysis.
+
+3. **Data Cleaning and Preparation**: Involves identifying and correcting errors or inconsistencies in the data to improve its quality. This step is critical for ensuring the accuracy of any subsequent analysis.
+
+4. **Data Integration**: Combining data from different sources into a single, unified dataset. This often involves ETL (Extract, Transform, Load) processes where data is extracted from different sources, transformed into a consistent format, and loaded into a central repository.
+
+5. **Data Governance**: Establishing policies and procedures to ensure data is managed properly. This includes defining roles and responsibilities, ensuring data privacy and security, and maintaining compliance with regulations.
+
+6. **Data Security**: Implementing measures to protect data from unauthorized access, breaches, and other threats. This involves encryption, access controls, and regular security audits.
+
+7. **Data Analysis**: Using statistical methods, algorithms, and software tools to analyze data and extract meaningful insights. This can involve descriptive, predictive, and prescriptive analytics.
+
+8. **Data Visualization**: Presenting data in graphical or pictorial formats such as charts, graphs, and dashboards to help users understand trends, patterns, and insights more easily.
+
+9. **Data Quality Management**: Continuously monitoring and maintaining the accuracy, consistency, and reliability of data. This involves data profiling, validation, and auditing.
+
+10. **Metadata Management**: Managing data about data, which includes documenting the data's source, format, and usage. Metadata helps in understanding the context and provenance of the data.
+
+11. **Data Lifecycle Management**: Managing data through its entire lifecycle, from initial creation and storage to eventual archiving and deletion. This ensures that data is managed in a way that supports its long-term usability and compliance with legal requirements.
+
+Effective data management practices ensure that data is high quality, well-organized, and accessible, which is essential for accurate and actionable data analytics. By implementing robust data management strategies, organizations can improve the reliability of their analyses, make better-informed decisions, and achieve greater operational efficiency.
+
+For further reading and deeper insights, consider these resources:
+- [Data Management Association International (DAMA)](https://dama.org)
+- [Data Management Body of Knowledge (DAMA-DMBOK)](https://dama.org/content/body-knowledge)
+- [Gartner's Data Management Solutions](https://www.gartner.com/en/information-technology/glossary/data-management-solutions-dmss)
+
+## Reproducibility and Transparency {-}
+
+Reproducibility is a cornerstone of scientific inquiry, demanding that two analyses empirical analyses yield consistent outcomes under equivalent conditions and with comparable populations under scrutiny [@gundersen2021repro; @goodman2016repro]. Historically, the reproducibility of scientific findings was often assumed, but this assumption has been substantially challenged by the Replication Crisis [@moonesinghe2007false; @simons2014repro]. The Replication Crisis, extensively documented [@osc2015repro, @ioannidis2005false], represents an ongoing methodological quandary stemming from the failure to reproduce critical medical studies and seminal experiments in social psychology during the late 1990s and early 2000s. By the early 2010s, the crisis had extended its reach to encompass segments of the social and life sciences [@anderson2016repro, @noba2019replication], significantly eroding public trust in the results of studies from the humanities and social sciences [@sciencealert2018replication; @atlantic2018psychology].
+
+Below are definitions of terms relevant for distinguishing in discussions around reproducibility and transparency. This clarification is necessary to avoid misunderstandings stemming from the common conflation of similar yet different terms in this discourse.
+
+- **Replication**: Replication involves repeating a study's procedure to determine if the prior findings can be reproduced. Unlike reproduction, which utilizes the same data and method, replication entails applying a similar method to different but comparable data. The aim is to ascertain if the results of the original study are robust across new data from the same or similar populations. Replication serves to advance theory by subjecting existing understanding to new evidence [@nosek2020replication; @moonesinghe2007false].
+
+- **Reproduction**: In contrast, reproduction (or computational replication) entails repeating a study by applying the exact same method to the exact same data (this is what @mcenery2022fundamental refer to as *repeatability*). The results should ideally be identical or highly similar to those of the original study. Reproduction relies on reproducibility, which assumes that the original study's authors have provided sufficient information for others to replicate the study. This concept often pertains to the computational aspects of research, such as version control of software tools and environments [@nosek2020replication].
+
+- **Robustness**: Robustness refers to the stability of results when studies are replicated using different procedures on either the same or different yet similar data. While replication studies may yield different results from the original study due to the use of different data, robust results demonstrate consistency in the direction and size of effects across varying procedures [@nosek2020replication].
+
+- **Triangulation**: Recognizing the limitations of replication and reproducibility in addressing the issues highlighted by the Replication Crisis, researchers emphasize the importance of triangulation. Triangulation involves strategically employing multiple approaches to address a single research question, thereby enhancing the reliability and validity of findings [@munafo2018robust].
+
+- **Practical versus theoretical/formal reproducibility**: This distinction distinguishes between practical and theoretical or formal reproducibility [@msch2024repro]. Practical reproducibility emphasizes the provision of resources by authors to facilitate the replication of a study with minimal time and effort. These resources may include notebooks, code repositories, or detailed documentation, allowing for the reproducibility of studies across different computers and software environments [@gruning2018practical].
+
+- **Transparency**: Transparency in research entails clear and comprehensive reporting of research procedures, methods, data, and analytical techniques. It involves providing sufficient information about study design, data collection, analysis, and interpretation to enable others to understand and potentially replicate the study. Transparency is particularly relevant in qualitative and interpretive research in the social sciences, where data sharing may be limited due to ethical or copyright considerations [@moravcsik2019transparency].
+
+We now move on to some practical tips and tricks on how to implement transparent and well-documented research practices.

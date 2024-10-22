@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Improving Transparency and Reproducible Results in Linguistics</title>
-  <meta name="description" content="Improving Transparency and Reproducible Results in Linguistics" />
+  <title>Part 8 Generating Interactive Notebooks | Improving Transparency and Reproducible Results in Linguistics</title>
+  <meta name="description" content="Part 8 Generating Interactive Notebooks | Improving Transparency and Reproducible Results in Linguistics" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Improving Transparency and Reproducible Results in Linguistics" />
+  <meta property="og:title" content="Part 8 Generating Interactive Notebooks | Improving Transparency and Reproducible Results in Linguistics" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Improving Transparency and Reproducible Results in Linguistics" />
+  <meta name="twitter:title" content="Part 8 Generating Interactive Notebooks | Improving Transparency and Reproducible Results in Linguistics" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="basic-concepts.html"/>
+<link rel="prev" href="markdown.html"/>
+<link rel="next" href="creating-bookdown-websites.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -258,41 +258,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Improving Transparency and Reproducible Results in Linguistics</h1>
-<p class="author"><em>Martin Schweinberger and Sam Hames</em></p>
-<p class="date"><em>2024-10-22</em></p>
+<div id="generating-interactive-notebooks" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Part 8</span> Generating Interactive Notebooks<a href="generating-interactive-notebooks.html#generating-interactive-notebooks" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Markdown documents can also serve as the basis of interactive notebooks. These notebooks are generated from a GitHub repository using a template provided by the <em>Australian Text Analytics Platform</em> (ATAP) and the <em>Language Data Commons of Australia</em> (LDaCA).</p>
+<p>The transformation from a static to an interactive notebook involves Dockerizing the GitHub repository, essentially creating a virtual machine based on the repository’s specified parameters. Subsequently, the interactive notebook is loaded into a Binder workspace, enabling others to interact with copies of your notebook. This sounds very fancy but is, fortunately, quite easy to do. One should be aware though that once a session concludes, the copy of the notebook is closed, although you have the option to save a copy at any point.</p>
+<p>Interactive notebooks are very versatile and serve various purposes, including the creation of teaching materials for statistics, text analytics, or programming-focused courses or classes, rendering one’s work transparent by sharing analyses with colleagues or reviewers, creating notebook-based online tools, or showcasing the implementation of computational methods. They accommodate both quantitative statistical and qualitative interpretative work.</p>
+<p>Notably, interactive notebooks empower others to execute and edit your code, facilitating data and analysis validation.</p>
+<p>Before generating an interactive notebook, ensure you have three essential components:</p>
+<ol style="list-style-type: decimal">
+<li>An R project containing an Rmd file.</li>
+<li>An Rmd file named <em>rmd2jupyter.Rmd</em>.</li>
+<li>A GitHub account.</li>
+</ol>
+<p>The Rmd file should utilize only one programming language, such as R, Python, or Julia, without mixing languages. Additionally, all necessary resources, such as data, should be accessible within the GitHub repository. It’s highly recommended to generate interactive notebooks only once a project or analysis is complete.</p>
+<p>Now, let’s proceed with the process of generating an interactive notebook.</p>
+<div id="preparation-of-the-rmd" class="section level2 unnumbered hasAnchor">
+<h2>Preparation of the Rmd<a href="generating-interactive-notebooks.html#preparation-of-the-rmd" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li><p>Begin by duplicating the Rmd file. A simple convention is to append “_cb” to the filename, indicating that this version will be converted into an interactive notebook.</p></li>
+<li><p>Unlike R Notebooks, interactive Jupyter notebooks do not utilize a YAML metadata header. Consequently, remove the YAML metadata header from the duplicated Rmd file and replace it with a first-level header to denote the notebook’s title. It’s advisable to adjust all headers in the Rmd file to maintain the original structure.</p></li>
+<li><p>Create a separate script file to list all required packages for installation. Remove any code chunks responsible for installing packages, as Jupyter notebooks have limited options for hiding code chunks.</p></li>
+</ol>
 </div>
-<div id="introduction" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Part 1</span> Introduction<a href="index.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Masterclass for the 2024 Annual Meeting of the Australian Linguistics Society (ALS2024), Australian National University, 26-29 November 2024</p>
-<p><img src="https://slcladal.github.io/images/uq1.jpg" width="100%" /></p>
-<p>This ALS2024 masterclass introduces measures that help to improve transparency and produce reproducible results in linguistics. To this aim, this ALS2024 masterclass discusses basic data management techniques, version control measures, and issues relating to reproducible research.</p>
-<p><img src="https://slcladal.github.io/images/reprocicle.png" width="40%" style="float:right; padding:10px" /></p>
-<p>This ALS2024 masterclass is designed to provide essential guidance on data management, transparency, and reproducibility for individuals working with language data. While it is accessible to all users, it focuses particularly on beginners and intermediate users of R, aiming to enhance their data management skills and utilize RStudio to make their analyses more transparent and reproducible.</p>
-<p>The objective of this ALS2024 masterclass is to demonstrate fundamental data management strategies and exemplify selected methods that improve the reproducibility of analytic workflows. By following this ALS2024 masterclass, users will learn to implement best practices in data management, ensure their workflows are transparent, and make their results reproducible, thereby increasing the reliability and credibility of their research.</p>
-<p>Furthermore, the ALS2024 masterclass will cover essential techniques such as version control with Git, using R Markdown for creating dynamic documents, strategies for organizing and documenting your code effectively, developing interactive Jupyter notebooks, and creating eBooks that are accessible via any browser. These methods are crucial for creating analyses that others can easily understand, verify, and build upon. By adopting these practices, you contribute to a more open and collaborative scientific community.</p>
-<div class="warning" style="padding:0.1em; background-color:#f2f2f2; color:#51247a">
-<span>
-<p style="margin-top:1em; text-align:center">
-The entire R Notebook for the ALS2024 masterclass can be downloaded <a href="https://slcladal.github.io/content/repro.Rmd"><strong>here</strong></a>. If you want to render the R Notebook on your machine, i.e. knitting the document to html or a pdf, you need to make sure that you have R and RStudio installed and you also need to download the <a href="https://slcladal.github.io/content/bibliography.bib"><strong>bibliography file</strong></a> and store it in the same folder where you store the Rmd file. <br>
-</p>
-<p style="margin-left:1em;">
-</p>
-<p></span></p>
+<div id="converting-your-rmd-into-a-jupyter-notebook" class="section level2 unnumbered hasAnchor">
+<h2>Converting your Rmd into a Jupyter notebook<a href="generating-interactive-notebooks.html#converting-your-rmd-into-a-jupyter-notebook" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol start="4" style="list-style-type: decimal">
+<li>Open the “rmd2jupyter.Rmd” file and proceed to install and activate the “rmd2jupyter” package, which contains the necessary function for Rmd to Jupyter conversion. Since this package isn’t available via CRAN, utilize the “devtools” package for installation.</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="generating-interactive-notebooks.html#cb1-1" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
+<span id="cb1-2"><a href="generating-interactive-notebooks.html#cb1-2" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;mkearney/rmd2jupyter&quot;</span>)</span>
+<span id="cb1-3"><a href="generating-interactive-notebooks.html#cb1-3" tabindex="-1"></a><span class="fu">library</span>(rmd2jupyter)</span></code></pre></div>
+<ol start="5" style="list-style-type: decimal">
+<li>Once the “rmd2jupyter” package is activated, use the “rmd2jupyter” function to convert the Rmd file to a Jupyter notebook.</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="generating-interactive-notebooks.html#cb2-1" tabindex="-1"></a><span class="co"># Convert one notebook</span></span>
+<span id="cb2-2"><a href="generating-interactive-notebooks.html#cb2-2" tabindex="-1"></a>rmd2jupyter<span class="sc">::</span><span class="fu">rmd2jupyter</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;acvqainter_cb.Rmd&quot;</span>))</span></code></pre></div>
 </div>
-<p><br></p>
-<p>In data science or when working with data, issues relating to organizing files and folders, managing data and projects, avoiding data loss, and efficient work flows are essential. The idea behind this ALS2024 masterclass is to address this issue and provide advice on how to handle data and creating efficient workflows.</p>
-<p>Some of the contents of this ALS2024 masterclass build on the <a href="https://web.library.uq.edu.au/research-tools-techniques/digital-essentials"><em>Digital Essentials module</em></a> that is offered by the UQ library, the <em>Reproducible Research resources</em> (created by Griffith University’s Library and eResearch Services), and on Amanda Miotto’s <a href="https://github.com/amandamiotto/Reproducible-Research-Things">Reproducible Reseach Things</a> (see also <a href="https://guereslib.github.io/Reproducible-Research-Things/">here</a> for an alternative version and <a href="https://github.com/guereslib/Reproducible-Research-Things">here for the GitHub repo</a>). You can find additional information on all things relating to computers, the digital world, and computer safety in the <a href="https://web.library.uq.edu.au/research-tools-techniques/digital-essentials"><em>Digital Essentials</em> course</a> that is part of UQ’s library resources.</p>
+<div id="creating-a-github-repository-that-connects-to-binder" class="section level2 unnumbered hasAnchor">
+<h2>Creating a GitHub repository that connects to Binder<a href="generating-interactive-notebooks.html#creating-a-github-repository-that-connects-to-binder" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol start="6" style="list-style-type: decimal">
+<li><p>Log in to your GitHub account and visit: <a href="https://github.com/Australian-Text-Analytics-Platform/r-binder-template">https://github.com/Australian-Text-Analytics-Platform/r-binder-template</a>.</p></li>
+<li><p>On the GitHub page, click on <em>Use this template</em> and select <em>Create a new repository</em> from the dropdown menu. Assign a name to the repository and optionally provide a brief description.</p></li>
+<li><p>Open the “install.R” file and specify the packages to be pre-installed by adding commands like <em>install.packages(“dplyr”)</em> on separate lines.</p></li>
+<li><p>Upload your Jupyter notebook by selecting <em>Upload file</em> from the drop-down menu. Additionally, if you need to create folders, create a dummy file first and specify its location as a subfolder.</p></li>
+</ol>
+<p>Once all required packages, the Jupyter notebook, and any necessary data files are uploaded, initiate the notebook by following the provided link. Adapt the URL to point to your interactive notebook by adjusting the username, repository name, and notebook filename.</p>
+<p>Alternatively, consider uploading your Jupyter notebook to Google Colab for sharing. However, note that Google Colab may terminate sessions if computations take too long or exceed resource limits.</p>
+<p>Please anticipate an extended setup time for the interactive notebook’s first launch, as Docker image creation from the GitHub repository may take up to an hour for complex notebooks with numerous dependencies. Simpler notebooks typically start faster but may still require at least 10 minutes for the initial setup.</p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="basic-concepts.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="markdown.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="creating-bookdown-websites.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -323,7 +345,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/MartinSchweinberger/ReproALS2024/edit/main/index.Rmd",
+"link": "https://github.com/MartinSchweinberger/ReproALS2024/edit/main/08-interactive.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -331,7 +353,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/MartinSchweinberger/ReproALS2024/blob/main/index.Rmd",
+"link": "https://github.com/MartinSchweinberger/ReproALS2024/blob/main/08-interactive.Rmd",
 "text": null
 },
 "download": null,

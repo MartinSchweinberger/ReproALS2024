@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Improving Transparency and Reproducible Results in Linguistics</title>
-  <meta name="description" content="Improving Transparency and Reproducible Results in Linguistics" />
+  <title>Part 5 Documentation | Improving Transparency and Reproducible Results in Linguistics</title>
+  <meta name="description" content="Part 5 Documentation | Improving Transparency and Reproducible Results in Linguistics" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Improving Transparency and Reproducible Results in Linguistics" />
+  <meta property="og:title" content="Part 5 Documentation | Improving Transparency and Reproducible Results in Linguistics" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Improving Transparency and Reproducible Results in Linguistics" />
+  <meta name="twitter:title" content="Part 5 Documentation | Improving Transparency and Reproducible Results in Linguistics" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="basic-concepts.html"/>
+<link rel="prev" href="data-handling-and-management.html"/>
+<link rel="next" href="optimizing-r-workflows.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -258,41 +258,126 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Improving Transparency and Reproducible Results in Linguistics</h1>
-<p class="author"><em>Martin Schweinberger and Sam Hames</em></p>
-<p class="date"><em>2024-10-22</em></p>
+<div id="documentation" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Part 5</span> Documentation<a href="documentation.html#documentation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Documentation involves meticulously recording your work so that others—or yourself at a later date—can easily understand what you did and how you did it. This practice is crucial for maintaining clarity and continuity in your projects. As a general rule, you should document your work with the assumption that you are instructing someone else on how to navigate your files and processes on your computer.</p>
+<div id="efficient-documentation" class="section level2 unnumbered hasAnchor">
+<h2>Efficient Documentation<a href="documentation.html#efficient-documentation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li><p><strong>Be Clear and Concise</strong>: Write in a straightforward and concise manner. Avoid jargon and complex language to ensure that your documentation is accessible to a wide audience.</p></li>
+<li><p><strong>Include Context</strong>: Provide background information to help the reader understand the purpose and scope of the work. Explain why certain decisions were made.</p></li>
+<li><p><strong>Step-by-Step Instructions</strong>: Break down processes into clear, sequential steps. This makes it easier for someone to follow your workflow.</p></li>
+<li><p><strong>Use Consistent Formatting</strong>: Consistency in headings, fonts, and styles improves readability and helps readers quickly find the information they need.</p></li>
+<li><p><strong>Document Locations and Structures</strong>: Clearly describe where files are located and the structure of your directories. Include details on how to navigate through your file system.</p></li>
+<li><p><strong>Explain File Naming Conventions</strong>: Detail your file naming conventions so others can understand the logic behind your organization and replicate it if necessary.</p></li>
+<li><p><strong>Update Regularly</strong>: Documentation should be a living document. Regularly update it to reflect changes and new developments in your project.</p></li>
+</ol>
+<p><strong>Example</strong></p>
+<p>If you were documenting a data analysis project, your documentation might include:</p>
+<ul>
+<li><strong>Project Overview</strong>: A brief summary of the project’s objectives, scope, and outcomes.</li>
+<li><strong>Directory Structure</strong>: An explanation of the folder organization and the purpose of each directory.</li>
+<li><strong>Data Sources</strong>: Descriptions of where data is stored and how it can be accessed.</li>
+<li><strong>Processing Steps</strong>: Detailed steps on how data is processed, including code snippets and explanations.</li>
+<li><strong>Analysis Methods</strong>: An overview of the analytical methods used and the rationale behind their selection.</li>
+<li><strong>Results</strong>: A summary of the results obtained and where they can be found.</li>
+<li><strong>Version Control</strong>: Information on how the project is version-controlled, including links to repositories and branches.</li>
+</ul>
+<p>By following these best practices, your documentation will be comprehensive and user-friendly, ensuring that anyone who needs to understand your work can do so efficiently. This level of detail not only aids in collaboration but also enhances the reproducibility and transparency of your projects.</p>
+<p><img src="https://slcladal.github.io/images/busfactor.png" width="50%" style="float:right; padding:10px" /></p>
 </div>
-<div id="introduction" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Part 1</span> Introduction<a href="index.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Masterclass for the 2024 Annual Meeting of the Australian Linguistics Society (ALS2024), Australian National University, 26-29 November 2024</p>
-<p><img src="https://slcladal.github.io/images/uq1.jpg" width="100%" /></p>
-<p>This ALS2024 masterclass introduces measures that help to improve transparency and produce reproducible results in linguistics. To this aim, this ALS2024 masterclass discusses basic data management techniques, version control measures, and issues relating to reproducible research.</p>
-<p><img src="https://slcladal.github.io/images/reprocicle.png" width="40%" style="float:right; padding:10px" /></p>
-<p>This ALS2024 masterclass is designed to provide essential guidance on data management, transparency, and reproducibility for individuals working with language data. While it is accessible to all users, it focuses particularly on beginners and intermediate users of R, aiming to enhance their data management skills and utilize RStudio to make their analyses more transparent and reproducible.</p>
-<p>The objective of this ALS2024 masterclass is to demonstrate fundamental data management strategies and exemplify selected methods that improve the reproducibility of analytic workflows. By following this ALS2024 masterclass, users will learn to implement best practices in data management, ensure their workflows are transparent, and make their results reproducible, thereby increasing the reliability and credibility of their research.</p>
-<p>Furthermore, the ALS2024 masterclass will cover essential techniques such as version control with Git, using R Markdown for creating dynamic documents, strategies for organizing and documenting your code effectively, developing interactive Jupyter notebooks, and creating eBooks that are accessible via any browser. These methods are crucial for creating analyses that others can easily understand, verify, and build upon. By adopting these practices, you contribute to a more open and collaborative scientific community.</p>
-<div class="warning" style="padding:0.1em; background-color:#f2f2f2; color:#51247a">
-<span>
-<p style="margin-top:1em; text-align:center">
-The entire R Notebook for the ALS2024 masterclass can be downloaded <a href="https://slcladal.github.io/content/repro.Rmd"><strong>here</strong></a>. If you want to render the R Notebook on your machine, i.e. knitting the document to html or a pdf, you need to make sure that you have R and RStudio installed and you also need to download the <a href="https://slcladal.github.io/content/bibliography.bib"><strong>bibliography file</strong></a> and store it in the same folder where you store the Rmd file. <br>
-</p>
-<p style="margin-left:1em;">
-</p>
-<p></span></p>
+<div id="documentation-and-the-bus-factor" class="section level2 unnumbered hasAnchor">
+<h2>Documentation and the Bus Factor<a href="documentation.html#documentation-and-the-bus-factor" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Documentation is not just about where your results and data are saved; it encompasses a wide range of forms depending on your needs and work style. Documenting your processes can include photos, word documents with descriptions, or websites that detail how you work.</p>
+<p>The concept of documentation is closely linked to the <em>Bus Factor</em> <span class="citation">[@jabrayilzade2022bus]</span> — a measure of how many people on a project need to be unavailable (e.g., hit by a bus) for the project to fail. Many projects have a bus factor of one, meaning that if the key person is unavailable, the project halts. Effective documentation raises the bus factor, ensuring that the project can continue smoothly if someone suddenly leaves or is unavailable.</p>
+<p>In collaborative projects, having a log of where to find relevant information and who to ask for help is particularly useful. Ideally, documentation should cover everything that a new team member needs to know. The perfect person to create this log is often the last person who joined the project, as they can provide fresh insights into what information is most needed.</p>
 </div>
-<p><br></p>
-<p>In data science or when working with data, issues relating to organizing files and folders, managing data and projects, avoiding data loss, and efficient work flows are essential. The idea behind this ALS2024 masterclass is to address this issue and provide advice on how to handle data and creating efficient workflows.</p>
-<p>Some of the contents of this ALS2024 masterclass build on the <a href="https://web.library.uq.edu.au/research-tools-techniques/digital-essentials"><em>Digital Essentials module</em></a> that is offered by the UQ library, the <em>Reproducible Research resources</em> (created by Griffith University’s Library and eResearch Services), and on Amanda Miotto’s <a href="https://github.com/amandamiotto/Reproducible-Research-Things">Reproducible Reseach Things</a> (see also <a href="https://guereslib.github.io/Reproducible-Research-Things/">here</a> for an alternative version and <a href="https://github.com/guereslib/Reproducible-Research-Things">here for the GitHub repo</a>). You can find additional information on all things relating to computers, the digital world, and computer safety in the <a href="https://web.library.uq.edu.au/research-tools-techniques/digital-essentials"><em>Digital Essentials</em> course</a> that is part of UQ’s library resources.</p>
+<div id="creating-an-onboarding-log" class="section level2 unnumbered hasAnchor">
+<h2>Creating an Onboarding Log<a href="documentation.html#creating-an-onboarding-log" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If you haven’t created a log for onboarding new team members, it’s highly recommended. This log should be stored in a ReadMe document or folder at the top level of the project directory. This ensures that essential information is easily accessible to anyone who needs it.</p>
+<p>By documenting thoroughly and effectively, you improve the resilience and sustainability of your project, making it less dependent on any single individual and enhancing its overall robustness.</p>
+<details>
+<summary>
+<strong>GOING FURTHER</strong>
+</summary>
+<p><strong>For Beginners</strong></p>
+<ul>
+<li><p>Read this first: <a href="https://www.cessda.eu/Training/Training-Resources/Library/Data-Management-Expert-Guide/2.-Organise-Document/Documentation-and-metadata">How to start Documenting and more by CESSDA ERIC</a></p></li>
+<li><p>Start with documenting in a text file or document- any start is a good start</p></li>
+<li><p>Have this document automatically synced to the cloud with your data or keep this in a shared place such as <em>Google docs</em>, <em>Microsoft teams</em>, or <em>Owncloud</em>. If you collaborate on a project and use UQ’s RDM, you should store a copy of your documentation there.</p></li>
+</ul>
+<p><strong>For Intermediates</strong></p>
+<ul>
+<li>Once you have the basics in place, go into detail on how your workflow goes from your raw data to the finished results. This can be anything from a detailed description of how you analyse your data, over R Notebooks, to downloaded function lists from Virtual Lab.</li>
+</ul>
+<p><strong>For Advanced documentarians</strong></p>
+<ul>
+<li>Learn about Git Repositories and wikis.</li>
+</ul>
+</details>
+</div>
+<div id="reproducible-reports-and-notebooks" class="section level2 unnumbered hasAnchor">
+<h2>Reproducible reports and notebooks<a href="documentation.html#reproducible-reports-and-notebooks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Notebooks seamlessly combine formatted text with executable code (e.g., R or Python) and display the resulting outputs, enabling researchers to trace and understand every step of a code-based analysis. This integration is facilitated by markdown, a lightweight markup language that blends the functionalities of conventional text editors like Word with programming interfaces. Jupyter notebooks <span class="citation">[@perez2015jupyter]</span> and R notebooks <span class="citation">[@xie2015r]</span> exemplify this approach, allowing researchers to interleave explanatory text with code snippets and visualize outputs within the same document. This cohesive presentation enhances research reproducibility and transparency by providing a comprehensive record of the analytical process, from code execution to output generation.</p>
+<p><img src="https://slcladal.github.io/images/notebook_raw.png" width="100%" style="float:right; padding:10px" /></p>
+<p>Notebooks offer several advantages for facilitating transparent and reproducible research in corpus linguistics. They have the capability to be rendered into PDF format, enabling easy sharing with reviewers and fellow researchers. This allows others to scrutinize the analysis process step by step. Additionally, the reporting feature of notebooks permits other researchers to replicate the same analysis with minimal effort, provided that the necessary data is accessible. As such, notebooks provide others with the means to thoroughly understand and replicate an analysis at the click of a button <span class="citation">[@msch2025repro]</span>.</p>
+<p><img src="https://slcladal.github.io/images/notebook_rendered.png" width="100%" style="float:right; padding:10px" /></p>
+<p>Furthermore, while notebooks are commonly used for documenting quantitative and computational analyses, recent studies have demonstrated their efficacy in rendering qualitative and interpretative work in corpus pragmatics <span class="citation">[@msch2025repro]</span> and corpus-based discourse analysis <span class="citation">[see @msch2024corpus]</span> more transparent. Especially interactive notebooks (but also traditional, non-interactive notebooks) enhance accountability by facilitating data exploration and enabling others to verify the reliability and accuracy of annotation schemes.</p>
+<p>Sharing notebooks offers an additional advantage compared to sharing files containing only code. While code captures the logic and instructions for analysis, it lacks the output generated by the code, such as visualizations or statistical models. Reproducing analyses solely from code necessitates specific coding expertise and replicating the software environment used for the original analysis. This process can be challenging, particularly for analyses reliant on diverse software applications, versions, and libraries, especially for researchers lacking strong coding skills. In contrast, rendered notebooks display both the analysis steps and the corresponding code output, eliminating the need to recreate the output locally. Moreover, understanding the code in the notebook typically requires only basic comprehension of coding concepts, enabling broader accessibility to the analysis process.</p>
+</div>
+<div id="version-control-git" class="section level2 unnumbered hasAnchor">
+<h2>Version control (Git)<a href="documentation.html#version-control-git" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Implementing version control systems, such as Git, helps track changes in code and data over time. The primary issue that version control applications address is the dependency of analyses on specific versions of software applications. What may have worked and produced a desired outcome with one version of a piece of software may no longer work with another version. Thus, keeping track of versions of software packages is crucial for sustainable reproducibility. Additionally, version control extends to tracking different versions of reports or analytic steps, particularly in collaborative settings <span class="citation">[@blischak2016quick]</span>.</p>
+<p><img src="https://slcladal.github.io/images/gitlogo.png" width="50%" style="float:right; padding:10px" /></p>
+<p>Version control facilitates collaboration by allowing researchers to revert to previous versions if necessary and provides an audit trail of the data processing, analysis, and reporting steps. It enhances transparency by capturing the evolution of the research project. Version control systems, such as Git, can be utilized to track code changes and facilitate collaboration <span class="citation">[@blischak2016quick]</span>.</p>
+<p>RStudio has built-in version control and also allows direct connection of projects to GitHub repositories. GitHub is a web-based platform and service that provides a collaborative environment for software development projects. It offers version control using Git, a distributed version control system, allowing developers to track changes to their code, collaborate with others, and manage projects efficiently. GitHub also provides features such as issue tracking, code review, and project management tools, making it a popular choice for both individual developers and teams working on software projects.</p>
+<p>Uploading and sharing resources (such as notebooks, code, annotation schemes, additional reports, etc.) on repositories like GitHub (<a href="https://github.com/" class="uri">https://github.com/</a>) <span class="citation">[@beer2018introducing]</span> ensures long-term preservation and accessibility, thereby ensuring that the research remains available for future analysis and verification. By openly sharing research materials on platforms like GitHub, researchers enable others to access and scrutinize their work, thereby promoting transparency and reproducibility.</p>
+</div>
+<div id="digital-object-identifier-doi-and-persistent-identifier-pid" class="section level2 unnumbered hasAnchor">
+<h2>Digital Object Identifier (DOI) and Persistent identifier (PiD)<a href="documentation.html#digital-object-identifier-doi-and-persistent-identifier-pid" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Once you’ve completed your project, help make your research data discoverable, accessible and possibly re-usable using a PiD such as a DOI! A <a href="https://www.doi.org/">Digital Object Identifier (DOI)</a> is a unique alphanumeric string assigned by either a publisher, organisation or agency that identifies content and provides a PERSISTENT link to its location on the internet, whether the object is digital or physical. It might look something like this <a href="http://dx.doi.org/10.4225/01/4F8E15A1B4D89" class="uri">http://dx.doi.org/10.4225/01/4F8E15A1B4D89</a>.</p>
+<p><img src="https://slcladal.github.io/images/doi.png" width="20%" style="float:right; padding:10px" /></p>
+<p>DOIs are also considered a type of persistent identifiers (PiDs). An identifier is any label used to name some thing uniquely (whether digital or physical). URLs are an example of an identifier. So are serial numbers, and personal names. A persistent identifier is guaranteed to be managed and kept up to date over a defined time period.</p>
+<p>Journal publishers assign DOIs to electronic copies of individual articles. DOIs can also be assigned by an organisation, research institutes or agencies and are generally managed by the relevant organisation and relevant policies. DOIs not only uniquely identify research data collections, it also supports citation and citation metrics.</p>
+<p>A DOI will also be given to any data set published in UQ eSpace, whether added manually or uploaded from <a href="https://research.uq.edu.au/rmbt/uqrdm">UQ RDM</a>. For information on how cite data, have a look <a href="https://web.library.uq.edu.au/node/4128/5#5">here</a>.</p>
+<p><strong>Key points</strong></p>
+<ul>
+<li><p>DOIs are a persistent identifier and as such carry expectations of curation, persistent access and rich metadata</p></li>
+<li><p>DOIs can be created for DATA SETS and associated outputs (e.g. grey literature, workflows, algorithms, software etc) - DOIs for data are equivalent with DOIs for other scholarly publications</p></li>
+<li><p>DOIs enable accurate data citation and bibliometrics (both metrics and altmetrics)</p></li>
+<li><p>Resolvable DOIs provide easy online access to research data for discovery, attribution and reuse</p></li>
+</ul>
+<details>
+<summary>
+<strong>GOING FURTHER</strong>
+</summary>
+<p><strong>For Beginners</strong></p>
+<ul>
+<li>Ensure data you associate with a publication has a DOI- your library is the best group to talk to for this.</li>
+</ul>
+<p><strong>For Intermediates</strong></p>
+<ul>
+<li><p>Learn more about how your DOI can potentially increase your citation rates by watching this 4m:51s <a href="https://www.youtube.com/watch?v=PgqtiY7oZ6k&amp;feature=youtu.be">video</a></p></li>
+<li><p>Learn more about how your DOI can potentially increase your citation rate by reading the <a href="https://www.ands.org.au/guides/data-citation-awareness">ANDS Data Citation Guide</a></p></li>
+</ul>
+<p><strong>For Advanced identifiers</strong></p>
+<ul>
+<li><p>Learn more about <a href="https://www.ands.org.au/guides/persistent-identifiers-awareness">PiDs and DOIs</a></p></li>
+<li><p>Contact the Library for advice on how to obtain a DOI upon project completion.</p></li>
+<li><p>Have a look at <a href="https://www.ands.org.au/working-with-data/citation-and-identifiers">ANDS/ARDC - Citation and Identifiers</a></p></li>
+<li><p>Check out the <a href="https://www.ands.org.au/guides/doi">DOI system for research data</a></p></li>
+</ul>
+</details>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="basic-concepts.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-handling-and-management.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="optimizing-r-workflows.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -323,7 +408,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/MartinSchweinberger/ReproALS2024/edit/main/index.Rmd",
+"link": "https://github.com/MartinSchweinberger/ReproALS2024/edit/main/05-documentation.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -331,7 +416,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/MartinSchweinberger/ReproALS2024/blob/main/index.Rmd",
+"link": "https://github.com/MartinSchweinberger/ReproALS2024/blob/main/05-documentation.Rmd",
 "text": null
 },
 "download": null,

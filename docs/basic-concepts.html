@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Improving Transparency and Reproducible Results in Linguistics</title>
-  <meta name="description" content="Improving Transparency and Reproducible Results in Linguistics" />
+  <title>Part 2 Basic concepts | Improving Transparency and Reproducible Results in Linguistics</title>
+  <meta name="description" content="Part 2 Basic concepts | Improving Transparency and Reproducible Results in Linguistics" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Improving Transparency and Reproducible Results in Linguistics" />
+  <meta property="og:title" content="Part 2 Basic concepts | Improving Transparency and Reproducible Results in Linguistics" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Improving Transparency and Reproducible Results in Linguistics" />
+  <meta name="twitter:title" content="Part 2 Basic concepts | Improving Transparency and Reproducible Results in Linguistics" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="basic-concepts.html"/>
+<link rel="prev" href="index.html"/>
+<link rel="next" href="organizing-projects.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -258,41 +258,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Improving Transparency and Reproducible Results in Linguistics</h1>
-<p class="author"><em>Martin Schweinberger and Sam Hames</em></p>
-<p class="date"><em>2024-10-22</em></p>
+<div id="basic-concepts" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Part 2</span> Basic concepts<a href="basic-concepts.html#basic-concepts" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This section introduces some basic concepts and provides useful tips for managing your research data.</p>
+<div id="what-is-data-management" class="section level2 unnumbered hasAnchor">
+<h2>What is Data Management?<a href="basic-concepts.html#what-is-data-management" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Data management refers to the comprehensive set of practices, policies, and processes used to manage data throughout its lifecycle <span class="citation">[@corea2019data, chapter 1]</span>. This involves ensuring that data is collected, stored, processed, and maintained in a way that it can be effectively used for analytical purposes. Good data management is crucial for enabling accurate, reliable, and meaningful analysis.</p>
+<p>Key components of data management in data analytics include:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Data Collection and Acquisition</strong>: Gathering data from various sources, which can include databases, APIs, sensors, web scraping, and more. The goal is to ensure the data is collected in a systematic and consistent manner.</p></li>
+<li><p><strong>Data Storage</strong>: Utilizing databases, data warehouses, data lakes, or cloud storage solutions to store collected data securely and efficiently. This ensures that data is easily accessible for analysis.</p></li>
+<li><p><strong>Data Cleaning and Preparation</strong>: Involves identifying and correcting errors or inconsistencies in the data to improve its quality. This step is critical for ensuring the accuracy of any subsequent analysis.</p></li>
+<li><p><strong>Data Integration</strong>: Combining data from different sources into a single, unified dataset. This often involves ETL (Extract, Transform, Load) processes where data is extracted from different sources, transformed into a consistent format, and loaded into a central repository.</p></li>
+<li><p><strong>Data Governance</strong>: Establishing policies and procedures to ensure data is managed properly. This includes defining roles and responsibilities, ensuring data privacy and security, and maintaining compliance with regulations.</p></li>
+<li><p><strong>Data Security</strong>: Implementing measures to protect data from unauthorized access, breaches, and other threats. This involves encryption, access controls, and regular security audits.</p></li>
+<li><p><strong>Data Analysis</strong>: Using statistical methods, algorithms, and software tools to analyze data and extract meaningful insights. This can involve descriptive, predictive, and prescriptive analytics.</p></li>
+<li><p><strong>Data Visualization</strong>: Presenting data in graphical or pictorial formats such as charts, graphs, and dashboards to help users understand trends, patterns, and insights more easily.</p></li>
+<li><p><strong>Data Quality Management</strong>: Continuously monitoring and maintaining the accuracy, consistency, and reliability of data. This involves data profiling, validation, and auditing.</p></li>
+<li><p><strong>Metadata Management</strong>: Managing data about data, which includes documenting the data’s source, format, and usage. Metadata helps in understanding the context and provenance of the data.</p></li>
+<li><p><strong>Data Lifecycle Management</strong>: Managing data through its entire lifecycle, from initial creation and storage to eventual archiving and deletion. This ensures that data is managed in a way that supports its long-term usability and compliance with legal requirements.</p></li>
+</ol>
+<p>Effective data management practices ensure that data is high quality, well-organized, and accessible, which is essential for accurate and actionable data analytics. By implementing robust data management strategies, organizations can improve the reliability of their analyses, make better-informed decisions, and achieve greater operational efficiency.</p>
+<p>For further reading and deeper insights, consider these resources:
+- <a href="https://dama.org">Data Management Association International (DAMA)</a>
+- <a href="https://dama.org/content/body-knowledge">Data Management Body of Knowledge (DAMA-DMBOK)</a>
+- <a href="https://www.gartner.com/en/information-technology/glossary/data-management-solutions-dmss">Gartner’s Data Management Solutions</a></p>
 </div>
-<div id="introduction" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Part 1</span> Introduction<a href="index.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Masterclass for the 2024 Annual Meeting of the Australian Linguistics Society (ALS2024), Australian National University, 26-29 November 2024</p>
-<p><img src="https://slcladal.github.io/images/uq1.jpg" width="100%" /></p>
-<p>This ALS2024 masterclass introduces measures that help to improve transparency and produce reproducible results in linguistics. To this aim, this ALS2024 masterclass discusses basic data management techniques, version control measures, and issues relating to reproducible research.</p>
-<p><img src="https://slcladal.github.io/images/reprocicle.png" width="40%" style="float:right; padding:10px" /></p>
-<p>This ALS2024 masterclass is designed to provide essential guidance on data management, transparency, and reproducibility for individuals working with language data. While it is accessible to all users, it focuses particularly on beginners and intermediate users of R, aiming to enhance their data management skills and utilize RStudio to make their analyses more transparent and reproducible.</p>
-<p>The objective of this ALS2024 masterclass is to demonstrate fundamental data management strategies and exemplify selected methods that improve the reproducibility of analytic workflows. By following this ALS2024 masterclass, users will learn to implement best practices in data management, ensure their workflows are transparent, and make their results reproducible, thereby increasing the reliability and credibility of their research.</p>
-<p>Furthermore, the ALS2024 masterclass will cover essential techniques such as version control with Git, using R Markdown for creating dynamic documents, strategies for organizing and documenting your code effectively, developing interactive Jupyter notebooks, and creating eBooks that are accessible via any browser. These methods are crucial for creating analyses that others can easily understand, verify, and build upon. By adopting these practices, you contribute to a more open and collaborative scientific community.</p>
-<div class="warning" style="padding:0.1em; background-color:#f2f2f2; color:#51247a">
-<span>
-<p style="margin-top:1em; text-align:center">
-The entire R Notebook for the ALS2024 masterclass can be downloaded <a href="https://slcladal.github.io/content/repro.Rmd"><strong>here</strong></a>. If you want to render the R Notebook on your machine, i.e. knitting the document to html or a pdf, you need to make sure that you have R and RStudio installed and you also need to download the <a href="https://slcladal.github.io/content/bibliography.bib"><strong>bibliography file</strong></a> and store it in the same folder where you store the Rmd file. <br>
-</p>
-<p style="margin-left:1em;">
-</p>
-<p></span></p>
-</div>
-<p><br></p>
-<p>In data science or when working with data, issues relating to organizing files and folders, managing data and projects, avoiding data loss, and efficient work flows are essential. The idea behind this ALS2024 masterclass is to address this issue and provide advice on how to handle data and creating efficient workflows.</p>
-<p>Some of the contents of this ALS2024 masterclass build on the <a href="https://web.library.uq.edu.au/research-tools-techniques/digital-essentials"><em>Digital Essentials module</em></a> that is offered by the UQ library, the <em>Reproducible Research resources</em> (created by Griffith University’s Library and eResearch Services), and on Amanda Miotto’s <a href="https://github.com/amandamiotto/Reproducible-Research-Things">Reproducible Reseach Things</a> (see also <a href="https://guereslib.github.io/Reproducible-Research-Things/">here</a> for an alternative version and <a href="https://github.com/guereslib/Reproducible-Research-Things">here for the GitHub repo</a>). You can find additional information on all things relating to computers, the digital world, and computer safety in the <a href="https://web.library.uq.edu.au/research-tools-techniques/digital-essentials"><em>Digital Essentials</em> course</a> that is part of UQ’s library resources.</p>
+<div id="reproducibility-and-transparency" class="section level2 unnumbered hasAnchor">
+<h2>Reproducibility and Transparency<a href="basic-concepts.html#reproducibility-and-transparency" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Reproducibility is a cornerstone of scientific inquiry, demanding that two analyses empirical analyses yield consistent outcomes under equivalent conditions and with comparable populations under scrutiny <span class="citation">[@gundersen2021repro; @goodman2016repro]</span>. Historically, the reproducibility of scientific findings was often assumed, but this assumption has been substantially challenged by the Replication Crisis <span class="citation">[@moonesinghe2007false; @simons2014repro]</span>. The Replication Crisis, extensively documented <span class="citation">[@osc2015repro, @ioannidis2005false]</span>, represents an ongoing methodological quandary stemming from the failure to reproduce critical medical studies and seminal experiments in social psychology during the late 1990s and early 2000s. By the early 2010s, the crisis had extended its reach to encompass segments of the social and life sciences <span class="citation">[@anderson2016repro, @noba2019replication]</span>, significantly eroding public trust in the results of studies from the humanities and social sciences <span class="citation">[@sciencealert2018replication; @atlantic2018psychology]</span>.</p>
+<p>Below are definitions of terms relevant for distinguishing in discussions around reproducibility and transparency. This clarification is necessary to avoid misunderstandings stemming from the common conflation of similar yet different terms in this discourse.</p>
+<ul>
+<li><p><strong>Replication</strong>: Replication involves repeating a study’s procedure to determine if the prior findings can be reproduced. Unlike reproduction, which utilizes the same data and method, replication entails applying a similar method to different but comparable data. The aim is to ascertain if the results of the original study are robust across new data from the same or similar populations. Replication serves to advance theory by subjecting existing understanding to new evidence <span class="citation">[@nosek2020replication; @moonesinghe2007false]</span>.</p></li>
+<li><p><strong>Reproduction</strong>: In contrast, reproduction (or computational replication) entails repeating a study by applying the exact same method to the exact same data (this is what <span class="citation">@mcenery2022fundamental</span> refer to as <em>repeatability</em>). The results should ideally be identical or highly similar to those of the original study. Reproduction relies on reproducibility, which assumes that the original study’s authors have provided sufficient information for others to replicate the study. This concept often pertains to the computational aspects of research, such as version control of software tools and environments <span class="citation">[@nosek2020replication]</span>.</p></li>
+<li><p><strong>Robustness</strong>: Robustness refers to the stability of results when studies are replicated using different procedures on either the same or different yet similar data. While replication studies may yield different results from the original study due to the use of different data, robust results demonstrate consistency in the direction and size of effects across varying procedures <span class="citation">[@nosek2020replication]</span>.</p></li>
+<li><p><strong>Triangulation</strong>: Recognizing the limitations of replication and reproducibility in addressing the issues highlighted by the Replication Crisis, researchers emphasize the importance of triangulation. Triangulation involves strategically employing multiple approaches to address a single research question, thereby enhancing the reliability and validity of findings <span class="citation">[@munafo2018robust]</span>.</p></li>
+<li><p><strong>Practical versus theoretical/formal reproducibility</strong>: This distinction distinguishes between practical and theoretical or formal reproducibility <span class="citation">[@msch2024repro]</span>. Practical reproducibility emphasizes the provision of resources by authors to facilitate the replication of a study with minimal time and effort. These resources may include notebooks, code repositories, or detailed documentation, allowing for the reproducibility of studies across different computers and software environments <span class="citation">[@gruning2018practical]</span>.</p></li>
+<li><p><strong>Transparency</strong>: Transparency in research entails clear and comprehensive reporting of research procedures, methods, data, and analytical techniques. It involves providing sufficient information about study design, data collection, analysis, and interpretation to enable others to understand and potentially replicate the study. Transparency is particularly relevant in qualitative and interpretive research in the social sciences, where data sharing may be limited due to ethical or copyright considerations <span class="citation">[@moravcsik2019transparency]</span>.</p></li>
+</ul>
+<p>We now move on to some practical tips and tricks on how to implement transparent and well-documented research practices.</p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="basic-concepts.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="organizing-projects.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -323,7 +337,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/MartinSchweinberger/ReproALS2024/edit/main/index.Rmd",
+"link": "https://github.com/MartinSchweinberger/ReproALS2024/edit/main/02-basics.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -331,7 +345,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/MartinSchweinberger/ReproALS2024/blob/main/index.Rmd",
+"link": "https://github.com/MartinSchweinberger/ReproALS2024/blob/main/02-basics.Rmd",
 "text": null
 },
 "download": null,

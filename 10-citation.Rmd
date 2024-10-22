@@ -1,0 +1,26 @@
+# Citation and Session Info
+
+Schweinberger, Martin and Sam Hames. 2024. *Improving Transparency and Reproducible Results in Linguistics (ALS2024 Masterclass)*. Brisbane: The University of Queensland. url: https://github.com/MartinSchweinberger/ReproWS (Version 2024.11.26).
+
+```
+@manual{schweinberger2024repro,
+  author = {Schweinberger, Martin and Hames, Sam},
+  title = {Improving Transparency and Reproducible Results in Linguistics (ALS2024 Masterclass)},
+  note = {https://github.com/MartinSchweinberger/ReproWS},
+  year = {2024},
+  organization = {2024 Annual Meeting of the Australian Linguistics Society (ALS2024)},
+  address = {Australian National University},
+  edition = {26-29 November 2024}
+}
+```
+
+
+
+```{r fin}
+sessionInfo()
+```
+
+
+
+
+

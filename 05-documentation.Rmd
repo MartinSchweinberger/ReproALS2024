@@ -1,0 +1,165 @@
+# Documentation
+
+Documentation involves meticulously recording your work so that others—or yourself at a later date—can easily understand what you did and how you did it. This practice is crucial for maintaining clarity and continuity in your projects. As a general rule, you should document your work with the assumption that you are instructing someone else on how to navigate your files and processes on your computer.
+
+## Efficient Documentation {-}
+
+1. **Be Clear and Concise**: Write in a straightforward and concise manner. Avoid jargon and complex language to ensure that your documentation is accessible to a wide audience.
+   
+2. **Include Context**: Provide background information to help the reader understand the purpose and scope of the work. Explain why certain decisions were made.
+   
+3. **Step-by-Step Instructions**: Break down processes into clear, sequential steps. This makes it easier for someone to follow your workflow.
+   
+4. **Use Consistent Formatting**: Consistency in headings, fonts, and styles improves readability and helps readers quickly find the information they need.
+   
+5. **Document Locations and Structures**: Clearly describe where files are located and the structure of your directories. Include details on how to navigate through your file system.
+   
+6. **Explain File Naming Conventions**: Detail your file naming conventions so others can understand the logic behind your organization and replicate it if necessary.
+   
+7. **Update Regularly**: Documentation should be a living document. Regularly update it to reflect changes and new developments in your project.
+
+**Example**
+
+If you were documenting a data analysis project, your documentation might include:
+
+- **Project Overview**: A brief summary of the project's objectives, scope, and outcomes.
+- **Directory Structure**: An explanation of the folder organization and the purpose of each directory.
+- **Data Sources**: Descriptions of where data is stored and how it can be accessed.
+- **Processing Steps**: Detailed steps on how data is processed, including code snippets and explanations.
+- **Analysis Methods**: An overview of the analytical methods used and the rationale behind their selection.
+- **Results**: A summary of the results obtained and where they can be found.
+- **Version Control**: Information on how the project is version-controlled, including links to repositories and branches.
+
+By following these best practices, your documentation will be comprehensive and user-friendly, ensuring that anyone who needs to understand your work can do so efficiently. This level of detail not only aids in collaboration but also enhances the reproducibility and transparency of your projects.
+
+```{r bus, echo=FALSE, out.width= "50%", out.extra='style="float:right; padding:10px"'}
+knitr::include_graphics("https://slcladal.github.io/images/busfactor.png")
+```
+
+## Documentation and the Bus Factor {-}
+
+Documentation is not just about where your results and data are saved; it encompasses a wide range of forms depending on your needs and work style. Documenting your processes can include photos, word documents with descriptions, or websites that detail how you work.
+
+The concept of documentation is closely linked to the *Bus Factor* [@jabrayilzade2022bus] — a measure of how many people on a project need to be unavailable (e.g., hit by a bus) for the project to fail. Many projects have a bus factor of one, meaning that if the key person is unavailable, the project halts. Effective documentation raises the bus factor, ensuring that the project can continue smoothly if someone suddenly leaves or is unavailable.
+
+In collaborative projects, having a log of where to find relevant information and who to ask for help is particularly useful. Ideally, documentation should cover everything that a new team member needs to know. The perfect person to create this log is often the last person who joined the project, as they can provide fresh insights into what information is most needed.
+
+
+## Creating an Onboarding Log {-}
+
+If you haven't created a log for onboarding new team members, it's highly recommended. This log should be stored in a ReadMe document or folder at the top level of the project directory. This ensures that essential information is easily accessible to anyone who needs it.
+
+By documenting thoroughly and effectively, you improve the resilience and sustainability of your project, making it less dependent on any single individual and enhancing its overall robustness.
+
+
+<details>
+<summary>**GOING FURTHER**</summary>
+
+**For Beginners**
+
+* Read this first: [How to start Documenting and more by CESSDA ERIC](https://www.cessda.eu/Training/Training-Resources/Library/Data-Management-Expert-Guide/2.-Organise-Document/Documentation-and-metadata)
+
+* Start with documenting in a text file or document- any start is a good start
+
+* Have this document automatically synced to the cloud with your data or keep this in a shared place such as *Google docs*, *Microsoft teams*, or *Owncloud*. If you collaborate on a project and use UQ’s RDM, you should store a copy of your documentation there.
+
+**For Intermediates**
+
+* Once you have the basics in place, go into detail on how your workflow goes from your raw data to the finished results. This can be anything from a detailed description of how you analyse your data, over R Notebooks, to downloaded function lists from Virtual Lab.
+
+**For Advanced documentarians**
+
+* Learn about Git Repositories and wikis.
+
+</details>
+
+
+## Reproducible reports and notebooks {-}
+
+
+
+Notebooks seamlessly combine formatted text with executable code (e.g., R or Python) and display the resulting outputs, enabling researchers to trace and understand every step of a code-based analysis. This integration is facilitated by markdown, a lightweight markup language that blends the functionalities of conventional text editors like Word with programming interfaces. Jupyter notebooks [@perez2015jupyter] and R notebooks [@xie2015r] exemplify this approach, allowing researchers to interleave explanatory text with code snippets and visualize outputs within the same document. This cohesive presentation enhances research reproducibility and transparency by providing a comprehensive record of the analytical process, from code execution to output generation.
+
+```{r rawnotebook, echo=FALSE, out.width= "100%", out.extra='style="float:right; padding:10px"'}
+knitr::include_graphics("https://slcladal.github.io/images/notebook_raw.png")
+```
+
+Notebooks offer several advantages for facilitating transparent and reproducible research in corpus linguistics. They have the capability to be rendered into PDF format, enabling easy sharing with reviewers and fellow researchers. This allows others to scrutinize the analysis process step by step. Additionally, the reporting feature of notebooks permits other researchers to replicate the same analysis with minimal effort, provided that the necessary data is accessible. As such, notebooks provide others with the means to thoroughly understand and replicate an analysis at the click of a button [@msch2025repro].
+
+```{r renderednotebook, echo=FALSE, out.width= "100%", out.extra='style="float:right; padding:10px"'}
+knitr::include_graphics("https://slcladal.github.io/images/notebook_rendered.png")
+```
+
+Furthermore, while notebooks are commonly used for documenting quantitative and computational analyses, recent studies have demonstrated their efficacy in rendering qualitative and interpretative work in corpus pragmatics [@msch2025repro] and corpus-based discourse analysis [see @msch2024corpus] more transparent. Especially interactive notebooks (but also traditional, non-interactive notebooks) enhance accountability by facilitating data exploration and enabling others to verify the reliability and accuracy of annotation schemes.
+
+Sharing notebooks offers an additional advantage compared to sharing files containing only code. While code captures the logic and instructions for analysis, it lacks the output generated by the code, such as visualizations or statistical models. Reproducing analyses solely from code necessitates specific coding expertise and replicating the software environment used for the original analysis. This process can be challenging, particularly for analyses reliant on diverse software applications, versions, and libraries, especially for researchers lacking strong coding skills. In contrast, rendered notebooks display both the analysis steps and the corresponding code output, eliminating the need to recreate the output locally. Moreover, understanding the code in the notebook typically requires only basic comprehension of coding concepts, enabling broader accessibility to the analysis process.
+
+
+## Version control (Git){-}
+
+
+
+Implementing version control systems, such as Git, helps track changes in code and data over time. The primary issue that version control applications address is the dependency of analyses on specific versions of software applications. What may have worked and produced a desired outcome with one version of a piece of software may no longer work with another version. Thus, keeping track of versions of software packages is crucial for sustainable reproducibility. Additionally, version control extends to tracking different versions of reports or analytic steps, particularly in collaborative settings [@blischak2016quick]. 
+
+```{r git, echo=FALSE, out.width= "50%", out.extra='style="float:right; padding:10px"'}
+knitr::include_graphics("https://slcladal.github.io/images/gitlogo.png")
+```
+
+Version control facilitates collaboration by allowing researchers to revert to previous versions if necessary and provides an audit trail of the data processing, analysis, and reporting steps. It enhances transparency by capturing the evolution of the research project. Version control systems, such as Git, can be utilized to track code changes and facilitate collaboration [@blischak2016quick].
+
+
+
+RStudio has built-in version control and also allows direct connection of projects to GitHub repositories. GitHub is a web-based platform and service that provides a collaborative environment for software development projects. It offers version control using Git, a distributed version control system, allowing developers to track changes to their code, collaborate with others, and manage projects efficiently. GitHub also provides features such as issue tracking, code review, and project management tools, making it a popular choice for both individual developers and teams working on software projects.
+
+Uploading and sharing resources (such as notebooks, code, annotation schemes, additional reports, etc.) on repositories like GitHub (https://github.com/) [@beer2018introducing] ensures long-term preservation and accessibility, thereby ensuring that the research remains available for future analysis and verification. By openly sharing research materials on platforms like GitHub, researchers enable others to access and scrutinize their work, thereby promoting transparency and reproducibility.
+
+## Digital Object Identifier (DOI) and Persistent identifier (PiD){-}
+
+Once you've completed your project, help make your research data discoverable, accessible and possibly re-usable using a PiD such as a DOI! A [Digital Object Identifier (DOI)](https://www.doi.org/) is a unique alphanumeric string assigned by either a publisher, organisation or agency that identifies content and provides a PERSISTENT link to its location on the internet, whether the object is digital or physical. It might look something like this http://dx.doi.org/10.4225/01/4F8E15A1B4D89. 
+
+```{r doi, echo=FALSE, out.width= "20%", out.extra='style="float:right; padding:10px"'}
+knitr::include_graphics("https://slcladal.github.io/images/doi.png")
+```
+
+DOIs are also considered a type of persistent identifiers (PiDs). An identifier is any label used to name some thing uniquely (whether digital or physical). URLs are an example of an identifier. So are serial numbers, and personal names. A persistent identifier is guaranteed to be managed and kept up to date over a defined time period.
+
+Journal publishers assign DOIs to electronic copies of individual articles. DOIs can also be assigned by an organisation, research institutes or agencies and are generally managed by the relevant organisation and relevant policies. DOIs not only uniquely identify research data collections, it also supports citation and citation metrics.
+
+A DOI will also be given to any data set published in UQ eSpace, whether added manually or uploaded from [UQ RDM](https://research.uq.edu.au/rmbt/uqrdm). For information on how cite data, have a look [here](https://web.library.uq.edu.au/node/4128/5#5).
+
+**Key points**
+
+* DOIs are a persistent identifier and as such carry expectations of curation, persistent access and rich metadata
+
+* DOIs can be created for DATA SETS and associated outputs (e.g. grey literature, workflows, algorithms, software etc) - DOIs for data are equivalent with DOIs for other scholarly publications
+
+* DOIs enable accurate data citation and bibliometrics (both metrics and altmetrics)
+
+* Resolvable DOIs provide easy online access to research data for discovery, attribution and reuse
+
+<details>
+<summary>**GOING FURTHER**</summary>
+
+
+**For Beginners** 
+
+* Ensure data you associate with a publication has a DOI- your library is the best group to talk to for this.
+
+**For Intermediates**
+
+* Learn more about how your DOI can potentially increase your citation rates by watching this 4m:51s [video](https://www.youtube.com/watch?v=PgqtiY7oZ6k&feature=youtu.be)
+
+* Learn more about how your DOI can potentially increase your citation rate by reading the [ANDS Data Citation Guide](https://www.ands.org.au/guides/data-citation-awareness)
+
+**For Advanced identifiers**
+
+* Learn more about [PiDs and DOIs](https://www.ands.org.au/guides/persistent-identifiers-awareness)
+
+* Contact the Library for advice on how to obtain a DOI upon project completion.
+
+* Have a look at [ANDS/ARDC - Citation and Identifiers](https://www.ands.org.au/working-with-data/citation-and-identifiers)
+
+* Check out the [DOI system for research data](https://www.ands.org.au/guides/doi)
+
+</details>
+

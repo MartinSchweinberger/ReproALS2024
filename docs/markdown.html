@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Part 7 Markdown | Improving Transparency and Reproducible Results in Linguistics</title>
+  <meta name="description" content="Part 7 Markdown | Improving Transparency and Reproducible Results in Linguistics" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Part 7 Markdown | Improving Transparency and Reproducible Results in Linguistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Part 7 Markdown | Improving Transparency and Reproducible Results in Linguistics" />
+  
+  
+  
+
+<meta name="author" content="Martin Schweinberger and Sam Hames" />
+
+
+<meta name="date" content="2024-10-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="optimizing-r-workflows.html"/>
+<link rel="next" href="generating-interactive-notebooks.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Transparency and Reproduciblity in Linguistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="basic-concepts.html"><a href="basic-concepts.html"><i class="fa fa-check"></i><b>2</b> Basic concepts</a>
+<ul>
+<li class="chapter" data-level="" data-path="basic-concepts.html"><a href="basic-concepts.html#what-is-data-management"><i class="fa fa-check"></i>What is Data Management?</a></li>
+<li class="chapter" data-level="" data-path="basic-concepts.html"><a href="basic-concepts.html#reproducibility-and-transparency"><i class="fa fa-check"></i>Reproducibility and Transparency</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="organizing-projects.html"><a href="organizing-projects.html"><i class="fa fa-check"></i><b>3</b> Organizing Projects</a>
+<ul>
+<li class="chapter" data-level="" data-path="organizing-projects.html"><a href="organizing-projects.html#folder-structures"><i class="fa fa-check"></i>Folder Structures</a></li>
+<li class="chapter" data-level="" data-path="organizing-projects.html"><a href="organizing-projects.html#folders-for-research-and-teaching"><i class="fa fa-check"></i>Folders for Research and Teaching</a></li>
+<li class="chapter" data-level="" data-path="organizing-projects.html"><a href="organizing-projects.html#shared-folder-structures"><i class="fa fa-check"></i>Shared Folder Structures</a></li>
+<li class="chapter" data-level="" data-path="organizing-projects.html"><a href="organizing-projects.html#file-naming-convention-fnc"><i class="fa fa-check"></i>File Naming Convention (FNC)</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-handling-and-management.html"><a href="data-handling-and-management.html"><i class="fa fa-check"></i><b>4</b> Data Handling and Management</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-handling-and-management.html"><a href="data-handling-and-management.html#keeping-copies-and-the-3-2-1-rule"><i class="fa fa-check"></i>Keeping copies and the 3-2-1 Rule</a></li>
+<li class="chapter" data-level="" data-path="data-handling-and-management.html"><a href="data-handling-and-management.html#dealing-with-sensitive-data"><i class="fa fa-check"></i>Dealing with Sensitive Data</a></li>
+<li class="chapter" data-level="" data-path="data-handling-and-management.html"><a href="data-handling-and-management.html#managing-deidentification-ardc"><i class="fa fa-check"></i>Managing Deidentification (ARDC)</a></li>
+<li class="chapter" data-level="" data-path="data-handling-and-management.html"><a href="data-handling-and-management.html#data-as-publications"><i class="fa fa-check"></i>Data as publications</a></li>
+<li class="chapter" data-level="" data-path="data-handling-and-management.html"><a href="data-handling-and-management.html#software"><i class="fa fa-check"></i>Software</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="documentation.html"><a href="documentation.html"><i class="fa fa-check"></i><b>5</b> Documentation</a>
+<ul>
+<li class="chapter" data-level="" data-path="documentation.html"><a href="documentation.html#efficient-documentation"><i class="fa fa-check"></i>Efficient Documentation</a></li>
+<li class="chapter" data-level="" data-path="documentation.html"><a href="documentation.html#documentation-and-the-bus-factor"><i class="fa fa-check"></i>Documentation and the Bus Factor</a></li>
+<li class="chapter" data-level="" data-path="documentation.html"><a href="documentation.html#creating-an-onboarding-log"><i class="fa fa-check"></i>Creating an Onboarding Log</a></li>
+<li class="chapter" data-level="" data-path="documentation.html"><a href="documentation.html#reproducible-reports-and-notebooks"><i class="fa fa-check"></i>Reproducible reports and notebooks</a></li>
+<li class="chapter" data-level="" data-path="documentation.html"><a href="documentation.html#version-control-git"><i class="fa fa-check"></i>Version control (Git)</a></li>
+<li class="chapter" data-level="" data-path="documentation.html"><a href="documentation.html#digital-object-identifier-doi-and-persistent-identifier-pid"><i class="fa fa-check"></i>Digital Object Identifier (DOI) and Persistent identifier (PiD)</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="optimizing-r-workflows.html"><a href="optimizing-r-workflows.html"><i class="fa fa-check"></i><b>6</b> Optimizing R Workflows</a>
+<ul>
+<li class="chapter" data-level="" data-path="optimizing-r-workflows.html"><a href="optimizing-r-workflows.html#rproj"><i class="fa fa-check"></i>Rproj</a></li>
+<li class="chapter" data-level="" data-path="optimizing-r-workflows.html"><a href="optimizing-r-workflows.html#dependency-control-renv"><i class="fa fa-check"></i>Dependency Control (renv)</a></li>
+<li class="chapter" data-level="" data-path="optimizing-r-workflows.html"><a href="optimizing-r-workflows.html#version-control-with-git"><i class="fa fa-check"></i>Version Control with Git</a></li>
+<li class="chapter" data-level="" data-path="optimizing-r-workflows.html"><a href="optimizing-r-workflows.html#solving-path-issues-here"><i class="fa fa-check"></i>Solving path issues: here</a></li>
+<li class="chapter" data-level="" data-path="optimizing-r-workflows.html"><a href="optimizing-r-workflows.html#reproducible-randomness-set.seed"><i class="fa fa-check"></i>Reproducible randomness: set.seed</a></li>
+<li class="chapter" data-level="" data-path="optimizing-r-workflows.html"><a href="optimizing-r-workflows.html#tidy-data-principles"><i class="fa fa-check"></i>Tidy data principles</a></li>
+<li class="chapter" data-level="" data-path="optimizing-r-workflows.html"><a href="optimizing-r-workflows.html#how-to-minimize-storage-space"><i class="fa fa-check"></i>How to minimize storage space</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="markdown.html"><a href="markdown.html"><i class="fa fa-check"></i><b>7</b> Markdown</a>
+<ul>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#headings"><i class="fa fa-check"></i>Headings</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#headings-with-links"><i class="fa fa-check"></i>Headings with Links</a>
+<ul>
+<li class="chapter" data-level="7.0.1" data-path="markdown.html"><a href="markdown.html#heading-with-a-link"><i class="fa fa-check"></i><b>7.0.1</b> Heading with a Link</a></li>
+</ul></li>
+<li class="chapter" data-level="7.1" data-path="markdown.html"><a href="markdown.html#custom-ids-for-headings"><i class="fa fa-check"></i><b>7.1</b> Custom IDs for Headings</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="markdown.html"><a href="markdown.html#custom-id"><i class="fa fa-check"></i><b>7.1.1</b> Custom ID Heading</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#table-of-contents"><i class="fa fa-check"></i>Table of Contents</a></li>
+<li class="chapter" data-level="7.2" data-path="markdown.html"><a href="markdown.html#table-of-contents-1"><i class="fa fa-check"></i><b>7.2</b> Table of Contents</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#emphasis"><i class="fa fa-check"></i>Emphasis</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#strikethrough"><i class="fa fa-check"></i>Strikethrough</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#superscript-and-subscript"><i class="fa fa-check"></i>Superscript and Subscript</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#highlight"><i class="fa fa-check"></i>Highlight</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#emojis"><i class="fa fa-check"></i>Emojis</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#emoji-shortcodes"><i class="fa fa-check"></i>Emoji Shortcodes</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#lists"><i class="fa fa-check"></i>Lists</a>
+<ul>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#unordered-list"><i class="fa fa-check"></i>Unordered List</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#ordered-list"><i class="fa fa-check"></i>Ordered List</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#task-lists"><i class="fa fa-check"></i>Task Lists</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#advanced-task-lists"><i class="fa fa-check"></i>Advanced Task Lists</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#definition-lists"><i class="fa fa-check"></i>Definition Lists</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#nested-lists"><i class="fa fa-check"></i>Nested Lists</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#links"><i class="fa fa-check"></i>Links</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#images"><i class="fa fa-check"></i>Images</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#images-with-links"><i class="fa fa-check"></i>Images with Links</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#blockquotes"><i class="fa fa-check"></i>Blockquotes</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#blockquotes-with-multiple-paragraphs"><i class="fa fa-check"></i>Blockquotes with Multiple Paragraphs</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#code"><i class="fa fa-check"></i>Code</a>
+<ul>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#inline-code"><i class="fa fa-check"></i>Inline Code</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#code-block"><i class="fa fa-check"></i>Code Block</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#blockquotes-with-nested-elements"><i class="fa fa-check"></i>Blockquotes with Nested Elements</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#inline-html"><i class="fa fa-check"></i>Inline HTML</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#html-entities"><i class="fa fa-check"></i>HTML Entities</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#expandable-sections-details-tag"><i class="fa fa-check"></i>Expandable Sections (Details Tag)</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#horizontal-rule"><i class="fa fa-check"></i>Horizontal Rule</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#tables"><i class="fa fa-check"></i>Tables</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#advanced-tables"><i class="fa fa-check"></i>Advanced Tables</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#footnotes"><i class="fa fa-check"></i>Footnotes</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#syntax-highlighting"><i class="fa fa-check"></i>Syntax Highlighting</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#math-expressions"><i class="fa fa-check"></i>Math Expressions</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#escaping-characters"><i class="fa fa-check"></i>Escaping Characters</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#mermaid-diagrams"><i class="fa fa-check"></i>Mermaid Diagrams</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="generating-interactive-notebooks.html"><a href="generating-interactive-notebooks.html"><i class="fa fa-check"></i><b>8</b> Generating Interactive Notebooks</a>
+<ul>
+<li class="chapter" data-level="" data-path="generating-interactive-notebooks.html"><a href="generating-interactive-notebooks.html#preparation-of-the-rmd"><i class="fa fa-check"></i>Preparation of the Rmd</a></li>
+<li class="chapter" data-level="" data-path="generating-interactive-notebooks.html"><a href="generating-interactive-notebooks.html#converting-your-rmd-into-a-jupyter-notebook"><i class="fa fa-check"></i>Converting your Rmd into a Jupyter notebook</a></li>
+<li class="chapter" data-level="" data-path="generating-interactive-notebooks.html"><a href="generating-interactive-notebooks.html#creating-a-github-repository-that-connects-to-binder"><i class="fa fa-check"></i>Creating a GitHub repository that connects to Binder</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="creating-bookdown-websites.html"><a href="creating-bookdown-websites.html"><i class="fa fa-check"></i><b>9</b> Creating Bookdown Websites</a></li>
+<li class="chapter" data-level="10" data-path="citation-and-session-info.html"><a href="citation-and-session-info.html"><i class="fa fa-check"></i><b>10</b> Citation and Session Info</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Improving Transparency and Reproducible Results in Linguistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="markdown" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Part 7</span> Markdown<a href="markdown.html#markdown" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><img src="https://slcladal.github.io/images/hex-rmarkdown.png" width="25%" style="float:right; padding:10px" /></p>
+<p>Markdown is a lightweight markup language that you can use to add formatting elements to plaintext text documents. Markdown’s simplicity and readability render it attractive for a wide range of writing and documentation tasks. Its flexibility allows it to be extended to suit more complex needs, making it a versatile tool. Created by John Gruber in 2004, its primary purpose is to allow people to write in an easy-to-read and easy-to-write plain text format, which can then be converted to structurally valid HTML (or other formats such as docx or pdf). Markdown is widely used for documentation, web writing, and content creation because of its simplicity and flexibility. Markdown provides an authoring framework for data science as Markdown can produce high quality reports that can be shared with an audience. The advantage of Markdown is that one can use a single Markdown file (or Markdown document) to combine</p>
+<ul>
+<li><p>executable code</p></li>
+<li><p>code output (such as visualizations and results of calculations)</p></li>
+<li><p>plain text (to explain, report, and document)</p></li>
+</ul>
+<p>R Markdown documents are fully reproducible and support dozens of static and dynamic output formats. Here are some key points about Markdown:</p>
+<ul>
+<li><p><em>Simplicity</em>: Markdown syntax is designed to be readable and easy to write. It avoids the complexity of other markup languages, making it accessible even for non-technical users.</p></li>
+<li><p><em>Plain Text Formatting</em>: Since Markdown is written in plain text, it can be created and edited in any text editor. This makes it highly portable and version control friendly.</p></li>
+<li><p><em>Conversion</em>: Markdown can be easily converted to HTML, making it ideal for web content. Many static site generators and content management systems support Markdown natively.</p></li>
+<li><p><em>Extensibility</em>: While the core syntax is intentionally simple, Markdown can be extended with plugins or additional syntaxes for more advanced features like tables, footnotes, and embedded content.</p></li>
+</ul>
+<p>Common Uses of Markdown include, for example, <em>documentation</em>, <em>read-me files</em>, <em>notes</em>, and <em>to-do lists</em> because it is easy to read in its raw form and can be rendered beautifully in web browsers.</p>
+<p>Check out <a href="https://rmarkdown.rstudio.com/">this introduction</a> to R Markdown by RStudio and have a look at <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">this R Markdown cheat sheet</a>.</p>
+<p>Here’s a guide with commands on the top and their rendered output below.</p>
+<div id="headings" class="section level2 unnumbered hasAnchor">
+<h2>Headings<a href="markdown.html#headings" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1-1"><a href="markdown.html#cb1-1" tabindex="-1"></a><span class="fu"># Heading 1</span></span>
+<span id="cb1-2"><a href="markdown.html#cb1-2" tabindex="-1"></a><span class="fu">## Heading 2</span></span>
+<span id="cb1-3"><a href="markdown.html#cb1-3" tabindex="-1"></a><span class="fu">### Heading 3</span></span>
+<span id="cb1-4"><a href="markdown.html#cb1-4" tabindex="-1"></a><span class="fu">#### Heading 4</span></span>
+<span id="cb1-5"><a href="markdown.html#cb1-5" tabindex="-1"></a><span class="fu">##### Heading 5</span></span>
+<span id="cb1-6"><a href="markdown.html#cb1-6" tabindex="-1"></a><span class="fu">###### Heading 6</span></span></code></pre></div>
+<p><strong>Rendered:</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="markdown.html#cb2-1" tabindex="-1"></a><span class="co"># Heading 1</span></span>
+<span id="cb2-2"><a href="markdown.html#cb2-2" tabindex="-1"></a><span class="do">## Heading 2</span></span>
+<span id="cb2-3"><a href="markdown.html#cb2-3" tabindex="-1"></a><span class="do">### Heading 3</span></span>
+<span id="cb2-4"><a href="markdown.html#cb2-4" tabindex="-1"></a><span class="do">#### Heading 4</span></span>
+<span id="cb2-5"><a href="markdown.html#cb2-5" tabindex="-1"></a><span class="do">##### Heading 5</span></span>
+<span id="cb2-6"><a href="markdown.html#cb2-6" tabindex="-1"></a><span class="do">###### Heading 6</span></span></code></pre></div>
+</div>
+<div id="headings-with-links" class="section level2 unnumbered hasAnchor">
+<h2>Headings with Links<a href="markdown.html#headings-with-links" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="markdown.html#cb3-1" tabindex="-1"></a><span class="fu">### [Heading with a Link](https://www.example.com)</span></span></code></pre></div>
+<p><strong>Rendered:</strong></p>
+<div id="heading-with-a-link" class="section level3 hasAnchor" number="7.0.1">
+<h3><span class="header-section-number">7.0.1</span> <a href="https://www.example.com">Heading with a Link</a><a href="markdown.html#heading-with-a-link" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+</div>
+<div id="custom-ids-for-headings" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Custom IDs for Headings<a href="markdown.html#custom-ids-for-headings" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb4-1"><a href="markdown.html#cb4-1" tabindex="-1"></a><span class="fu">### Custom ID Heading {#custom-id}</span></span></code></pre></div>
+<p><strong>Rendered:</strong></p>
+<div id="custom-id" class="section level3 hasAnchor" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> Custom ID Heading<a href="markdown.html#custom-id" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+</div>
+<div id="table-of-contents" class="section level2 unnumbered hasAnchor">
+<h2>Table of Contents<a href="markdown.html#table-of-contents" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb5-1"><a href="markdown.html#cb5-1" tabindex="-1"></a><span class="fu">## Table of Contents</span></span>
+<span id="cb5-2"><a href="markdown.html#cb5-2" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Headings</span><span class="co">](#headings)</span></span>
+<span id="cb5-3"><a href="markdown.html#cb5-3" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Blockquotes</span><span class="co">](#blockquotes)</span></span>
+<span id="cb5-4"><a href="markdown.html#cb5-4" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Images</span><span class="co">](#images)</span></span>
+<span id="cb5-5"><a href="markdown.html#cb5-5" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Tables</span><span class="co">](#tables)</span></span></code></pre></div>
+<p><strong>Rendered:</strong></p>
+</div>
+<div id="table-of-contents-1" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Table of Contents<a href="markdown.html#table-of-contents-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><a href="markdown.html#headings">Headings</a></li>
+<li><a href="markdown.html#blockquotes">Blockquotes</a></li>
+<li><a href="markdown.html#images">Images</a></li>
+<li><a href="markdown.html#tables">Tables</a></li>
+</ul>
+</div>
+<div id="emphasis" class="section level2 unnumbered hasAnchor">
+<h2>Emphasis<a href="markdown.html#emphasis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb6-1"><a href="markdown.html#cb6-1" tabindex="-1"></a>*Italic text*</span>
+<span id="cb6-2"><a href="markdown.html#cb6-2" tabindex="-1"></a>_Italic text_</span>
+<span id="cb6-3"><a href="markdown.html#cb6-3" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="markdown.html#cb6-4" tabindex="-1"></a>**Bold text**</span>
+<span id="cb6-5"><a href="markdown.html#cb6-5" tabindex="-1"></a>__Bold text__</span>
+<span id="cb6-6"><a href="markdown.html#cb6-6" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="markdown.html#cb6-7" tabindex="-1"></a>***Bold and italic***</span>
+<span id="cb6-8"><a href="markdown.html#cb6-8" tabindex="-1"></a>___Bold and italic___</span></code></pre></div>
+<p><strong>Rendered:</strong></p>
+<p><em>Italic text</em><br />
+<em>Italic text</em></p>
+<p><strong>Bold text</strong><br />
+<strong>Bold text</strong></p>
+<p><strong><em>Bold and italic</em></strong><br />
+<strong><em>Bold and italic</em></strong></p>
+</div>
+<div id="strikethrough" class="section level2 unnumbered hasAnchor">
+<h2>Strikethrough<a href="markdown.html#strikethrough" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb7-1"><a href="markdown.html#cb7-1" tabindex="-1"></a>This is a ~~strikethrough~~ example.</span></code></pre></div>
+<p><strong>Rendered:</strong></p>
+<p>This is a <del>strikethrough</del> example.</p>
+</div>
+<div id="superscript-and-subscript" class="section level2 unnumbered hasAnchor">
+<h2>Superscript and Subscript<a href="markdown.html#superscript-and-subscript" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb8-1"><a href="markdown.html#cb8-1" tabindex="-1"></a>H~2~O and E=mc^2^</span></code></pre></div>
+<p><strong>Rendered:</strong></p>
+<p>H<sub>2</sub>O and E=mc<sup>2</sup></p>
+</div>
+<div id="highlight" class="section level2 unnumbered hasAnchor">
+<h2>Highlight<a href="markdown.html#highlight" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb9-1"><a href="markdown.html#cb9-1" tabindex="-1"></a>I need to <span class="al">==highlight==</span> this text.</span></code></pre></div>
+<p><strong>Rendered:</strong></p>
+<p>I need to ==highlight== this text.</p>
+</div>
+<div id="emojis" class="section level2 unnumbered hasAnchor">
+<h2>Emojis<a href="markdown.html#emojis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb10-1"><a href="markdown.html#cb10-1" tabindex="-1"></a><span class="an">Here is an emoji:</span><span class="co"> :smile:</span></span></code></pre></div>
+<p><strong>Rendered:</strong></p>
+<p>Here is an emoji: :smile:</p>
+</div>
+<div id="emoji-shortcodes" class="section level2 unnumbered hasAnchor">
+<h2>Emoji Shortcodes<a href="markdown.html#emoji-shortcodes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb11-1"><a href="markdown.html#cb11-1" tabindex="-1"></a><span class="sc">:smile:</span> <span class="sc">:+1:</span> <span class="sc">:sparkles:</span></span></code></pre></div>
+<p><strong>Rendered:</strong></p>
+<p>:smile: :+1: :sparkles:</p>
+</div>
+<div id="lists" class="section level2 unnumbered hasAnchor">
+<h2>Lists<a href="markdown.html#lists" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="unordered-list" class="section level3 unnumbered hasAnchor">
+<h3>Unordered List<a href="markdown.html#unordered-list" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb12-1"><a href="markdown.html#cb12-1" tabindex="-1"></a><span class="ss">- </span>Item 1</span>
+<span id="cb12-2"><a href="markdown.html#cb12-2" tabindex="-1"></a><span class="ss">- </span>Item 2</span>
+<span id="cb12-3"><a href="markdown.html#cb12-3" tabindex="-1"></a><span class="ss">  - </span>Subitem 2.1</span>
+<span id="cb12-4"><a href="markdown.html#cb12-4" tabindex="-1"></a><span class="ss">  - </span>Subitem 2.2</span>
+<span id="cb12-5"><a href="markdown.html#cb12-5" tabindex="-1"></a><span class="ss">- </span>Item 3</span></code></pre></div>
+<p><strong>Rendered:</strong></p>
+<ul>
+<li>Item 1</li>
+<li>Item 2
+<ul>
+<li>Subitem 2.1</li>
+<li>Subitem 2.2</li>
+</ul></li>
+<li>Item 3</li>
+</ul>
+</div>
+<div id="ordered-list" class="section level3 unnumbered hasAnchor">
+<h3>Ordered List<a href="markdown.html#ordered-list" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb13-1"><a href="markdown.html#cb13-1" tabindex="-1"></a><span class="ss">1. </span>First item</span>
+<span id="cb13-2"><a href="markdown.html#cb13-2" tabindex="-1"></a><span class="ss">2. </span>Second item</span>
+<span id="cb13-3"><a href="markdown.html#cb13-3" tabindex="-1"></a><span class="ss">3. </span>Third item</span>
+<span id="cb13-4"><a href="markdown.html#cb13-4" tabindex="-1"></a><span class="ss">   1. </span>Subitem 3.1</span>
+<span id="cb13-5"><a href="markdown.html#cb13-5" tabindex="-1"></a><span class="ss">   2. </span>Subitem 3.2</span></code></pre></div>
+<p><strong>Rendered:</strong></p>
+<ol style="list-style-type: decimal">
+<li>First item</li>
+<li>Second item</li>
+<li>Third item
+<ol style="list-style-type: decimal">
+<li>Subitem 3.1</li>
+<li>Subitem 3.2</li>
+</ol></li>
+</ol>
+</div>
+<div id="task-lists" class="section level3 unnumbered hasAnchor">
+<h3>Task Lists<a href="markdown.html#task-lists" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb14-1"><a href="markdown.html#cb14-1" tabindex="-1"></a><span class="ss">- </span><span class="va">[x]</span> Completed task</span>
+<span id="cb14-2"><a href="markdown.html#cb14-2" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Incomplete task</span>
+<span id="cb14-3"><a href="markdown.html#cb14-3" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Another incomplete task</span></code></pre></div>
+<p><strong>Rendered:</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="" />Completed task</label></li>
+<li><label><input type="checkbox" />Incomplete task</label></li>
+<li><label><input type="checkbox" />Another incomplete task</label></li>
+</ul>
+</div>
+<div id="advanced-task-lists" class="section level3 unnumbered hasAnchor">
+<h3>Advanced Task Lists<a href="markdown.html#advanced-task-lists" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb15-1"><a href="markdown.html#cb15-1" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Task 1</span>
+<span id="cb15-2"><a href="markdown.html#cb15-2" tabindex="-1"></a><span class="ss">  - </span><span class="va">[x]</span> Subtask 1</span>
+<span id="cb15-3"><a href="markdown.html#cb15-3" tabindex="-1"></a><span class="ss">  - </span><span class="va">[ ]</span> Subtask 2</span>
+<span id="cb15-4"><a href="markdown.html#cb15-4" tabindex="-1"></a><span class="ss">- </span><span class="va">[x]</span> Task 2</span></code></pre></div>
+<p><strong>Rendered:</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox" />Task 1</label>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="" />Subtask 1</label></li>
+<li><label><input type="checkbox" />Subtask 2</label></li>
+</ul></li>
+<li><label><input type="checkbox" checked="" />Task 2</label></li>
+</ul>
+</div>
+<div id="definition-lists" class="section level3 unnumbered hasAnchor">
+<h3>Definition Lists<a href="markdown.html#definition-lists" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb16-1"><a href="markdown.html#cb16-1" tabindex="-1"></a>First Term</span>
+<span id="cb16-2"><a href="markdown.html#cb16-2" tabindex="-1"></a>: This is the definition of the first term.</span>
+<span id="cb16-3"><a href="markdown.html#cb16-3" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="markdown.html#cb16-4" tabindex="-1"></a>Second Term</span>
+<span id="cb16-5"><a href="markdown.html#cb16-5" tabindex="-1"></a>: This is the definition of the second term.</span></code></pre></div>
+<p><strong>Rendered:</strong></p>
+<dl>
+<dt>First Term</dt>
+<dd>
+This is the definition of the first term.
+</dd>
+<dt>Second Term</dt>
+<dd>
+This is the definition of the second term.
+</dd>
+</dl>
+</div>
+<div id="nested-lists" class="section level3 unnumbered hasAnchor">
+<h3>Nested Lists<a href="markdown.html#nested-lists" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb17-1"><a href="markdown.html#cb17-1" tabindex="-1"></a><span class="ss">1. </span>First item</span>
+<span id="cb17-2"><a href="markdown.html#cb17-2" tabindex="-1"></a><span class="ss">   - </span>Subitem 1</span>
+<span id="cb17-3"><a href="markdown.html#cb17-3" tabindex="-1"></a><span class="ss">     - </span>Sub-subitem 1</span>
+<span id="cb17-4"><a href="markdown.html#cb17-4" tabindex="-1"></a><span class="ss">   - </span>Subitem 2</span>
+<span id="cb17-5"><a href="markdown.html#cb17-5" tabindex="-1"></a><span class="ss">2. </span>Second item</span></code></pre></div>
+<p><strong>Rendered:</strong></p>
+<ol style="list-style-type: decimal">
+<li>First item
+<ul>
+<li>Subitem 1
+<ul>
+<li>Sub-subitem 1</li>
+</ul></li>
+<li>Subitem 2</li>
+</ul></li>
+<li>Second item</li>
+</ol>
+</div>
+</div>
+<div id="links" class="section level2 unnumbered hasAnchor">
+<h2>Links<a href="markdown.html#links" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb18-1"><a href="markdown.html#cb18-1" tabindex="-1"></a><span class="co">[</span><span class="ot">LADAL</span><span class="co">](https://ladal.edu.au)</span></span></code></pre></div>
+<p><strong>Rendered:</strong></p>
+<p><a href="https://ladal.edu.au">LADAL</a></p>
+</div>
+<div id="images" class="section level2 unnumbered hasAnchor">
+<h2>Images<a href="markdown.html#images" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb19-1"><a href="markdown.html#cb19-1" tabindex="-1"></a><span class="al">![Alt text](https://via.placeholder.com/150)</span></span></code></pre></div>
+<p><strong>Rendered:</strong></p>
+<div class="float">
+<img src="https://via.placeholder.com/150" alt="Alt text" />
+<div class="figcaption">Alt text</div>
+</div>
+</div>
+<div id="images-with-links" class="section level2 unnumbered hasAnchor">
+<h2>Images with Links<a href="markdown.html#images-with-links" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb20-1"><a href="markdown.html#cb20-1" tabindex="-1"></a><span class="co">[</span><span class="al">![Alt text](https://via.placeholder.com/150)</span><span class="co">](https://www.example.com)</span></span></code></pre></div>
+<p><strong>Rendered:</strong></p>
+<p><a href="https://www.example.com"><img src="https://via.placeholder.com/150" alt="Alt text" /></a></p>
+</div>
+<div id="blockquotes" class="section level2 unnumbered hasAnchor">
+<h2>Blockquotes<a href="markdown.html#blockquotes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb21-1"><a href="markdown.html#cb21-1" tabindex="-1"></a><span class="at">&gt; This is a blockquote.</span></span>
+<span id="cb21-2"><a href="markdown.html#cb21-2" tabindex="-1"></a><span class="at">&gt; </span></span>
+<span id="cb21-3"><a href="markdown.html#cb21-3" tabindex="-1"></a><span class="at">&gt; This is a second paragraph within the blockquote.</span></span></code></pre></div>
+<p><strong>Rendered:</strong></p>
+<blockquote>
+<p>This is a blockquote.</p>
+<p>This is a second paragraph within the blockquote.</p>
+</blockquote>
+</div>
+<div id="blockquotes-with-multiple-paragraphs" class="section level2 unnumbered hasAnchor">
+<h2>Blockquotes with Multiple Paragraphs<a href="markdown.html#blockquotes-with-multiple-paragraphs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb22-1"><a href="markdown.html#cb22-1" tabindex="-1"></a><span class="at">&gt; This is a blockquote with multiple paragraphs.</span></span>
+<span id="cb22-2"><a href="markdown.html#cb22-2" tabindex="-1"></a><span class="at">&gt;</span></span>
+<span id="cb22-3"><a href="markdown.html#cb22-3" tabindex="-1"></a><span class="at">&gt; This is the second paragraph in the blockquote.</span></span></code></pre></div>
+<p><strong>Rendered:</strong></p>
+<blockquote>
+<p>This is a blockquote with multiple paragraphs.</p>
+<p>This is the second paragraph in the blockquote.</p>
+</blockquote>
+</div>
+<div id="code" class="section level2 unnumbered hasAnchor">
+<h2>Code<a href="markdown.html#code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="inline-code" class="section level3 unnumbered hasAnchor">
+<h3>Inline Code<a href="markdown.html#inline-code" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb23-1"><a href="markdown.html#cb23-1" tabindex="-1"></a><span class="in">`inline code`</span></span></code></pre></div>
+<p><strong>Rendered:</strong></p>
+<p><code>inline code</code></p>
+</div>
+<div id="code-block" class="section level3 unnumbered hasAnchor">
+<h3>Code Block<a href="markdown.html#code-block" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Command:</strong></p>
+<pre markdown="1">
+```markdown
+{
+  "firstName": "Martin",
+  "lastName": "Schweinberger",
+  "age": 43
+}
+```
+</pre>
+<p><strong>Rendered:</strong></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb24-1"><a href="markdown.html#cb24-1" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb24-2"><a href="markdown.html#cb24-2" tabindex="-1"></a>  <span class="dt">&quot;firstName&quot;</span><span class="fu">:</span> <span class="st">&quot;John&quot;</span><span class="fu">,</span></span>
+<span id="cb24-3"><a href="markdown.html#cb24-3" tabindex="-1"></a>  <span class="dt">&quot;lastName&quot;</span><span class="fu">:</span> <span class="st">&quot;Smith&quot;</span><span class="fu">,</span></span>
+<span id="cb24-4"><a href="markdown.html#cb24-4" tabindex="-1"></a>  <span class="dt">&quot;age&quot;</span><span class="fu">:</span> <span class="dv">25</span></span>
+<span id="cb24-5"><a href="markdown.html#cb24-5" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+</div>
+</div>
+<div id="blockquotes-with-nested-elements" class="section level2 unnumbered hasAnchor">
+<h2>Blockquotes with Nested Elements<a href="markdown.html#blockquotes-with-nested-elements" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb25-1"><a href="markdown.html#cb25-1" tabindex="-1"></a><span class="at">&gt; ### This is a heading</span></span>
+<span id="cb25-2"><a href="markdown.html#cb25-2" tabindex="-1"></a><span class="at">&gt; - This is a list item within a blockquote</span></span>
+<span id="cb25-3"><a href="markdown.html#cb25-3" tabindex="-1"></a><span class="at">&gt; - Another item</span></span>
+<span id="cb25-4"><a href="markdown.html#cb25-4" tabindex="-1"></a><span class="at">&gt;</span></span>
+<span id="cb25-5"><a href="markdown.html#cb25-5" tabindex="-1"></a><span class="at">&gt; &gt; This is a nested blockquote</span></span></code></pre></div>
+<p><strong>Rendered:</strong></p>
+<blockquote>
+<h3 id="this-is-a-heading" class="hasAnchor">This is a heading<a href="markdown.html#this-is-a-heading" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>This is a list item within a blockquote</li>
+<li>Another item</li>
+</ul>
+<blockquote>
+<p>This is a nested blockquote</p>
+</blockquote>
+</blockquote>
+</div>
+<div id="inline-html" class="section level2 unnumbered hasAnchor">
+<h2>Inline HTML<a href="markdown.html#inline-html" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb26-1"><a href="markdown.html#cb26-1" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>This is an inline HTML paragraph.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span></code></pre></div>
+<p><strong>Rendered:</strong></p>
+<p>
+This is an inline HTML paragraph.
+</p>
+</div>
+<div id="html-entities" class="section level2 unnumbered hasAnchor">
+<h2>HTML Entities<a href="markdown.html#html-entities" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb27-1"><a href="markdown.html#cb27-1" tabindex="-1"></a>AT&amp;T <span class="dv">&amp;copy;</span> 2024</span></code></pre></div>
+<p><strong>Rendered:</strong></p>
+<p>AT&amp;T © 2024</p>
+</div>
+<div id="expandable-sections-details-tag" class="section level2 unnumbered hasAnchor">
+<h2>Expandable Sections (Details Tag)<a href="markdown.html#expandable-sections-details-tag" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb28-1"><a href="markdown.html#cb28-1" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">details</span><span class="dt">&gt;</span></span>
+<span id="cb28-2"><a href="markdown.html#cb28-2" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">summary</span><span class="dt">&gt;</span>Click to expand<span class="dt">&lt;/</span><span class="kw">summary</span><span class="dt">&gt;</span></span>
+<span id="cb28-3"><a href="markdown.html#cb28-3" tabindex="-1"></a>  This is the detailed content that is hidden until expanded.</span>
+<span id="cb28-4"><a href="markdown.html#cb28-4" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">details</span><span class="dt">&gt;</span></span></code></pre></div>
+<p><strong>Rendered:</strong></p>
+<details>
+<summary>
+Click to expand
+</summary>
+This is the detailed content that is hidden until expanded.
+</details>
+</div>
+<div id="horizontal-rule" class="section level2 unnumbered hasAnchor">
+<h2>Horizontal Rule<a href="markdown.html#horizontal-rule" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb29-1"><a href="markdown.html#cb29-1" tabindex="-1"></a><span class="co">---</span></span></code></pre></div>
+<p><strong>Rendered:</strong></p>
+<hr />
+</div>
+<div id="tables" class="section level2 unnumbered hasAnchor">
+<h2>Tables<a href="markdown.html#tables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb30-1"><a href="markdown.html#cb30-1" tabindex="-1"></a><span class="pp">|</span> Header 1 <span class="pp">|</span> Header 2 <span class="pp">|</span></span>
+<span id="cb30-2"><a href="markdown.html#cb30-2" tabindex="-1"></a><span class="pp">|----------|----------|</span></span>
+<span id="cb30-3"><a href="markdown.html#cb30-3" tabindex="-1"></a><span class="pp">|</span> Cell 1   <span class="pp">|</span> Cell 2   <span class="pp">|</span></span>
+<span id="cb30-4"><a href="markdown.html#cb30-4" tabindex="-1"></a><span class="pp">|</span> Cell 3   <span class="pp">|</span> Cell 4   <span class="pp">|</span></span></code></pre></div>
+<p><strong>Rendered:</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Header 1</th>
+<th>Header 2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Cell 1</td>
+<td>Cell 2</td>
+</tr>
+<tr class="even">
+<td>Cell 3</td>
+<td>Cell 4</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="advanced-tables" class="section level2 unnumbered hasAnchor">
+<h2>Advanced Tables<a href="markdown.html#advanced-tables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb31-1"><a href="markdown.html#cb31-1" tabindex="-1"></a><span class="pp">|</span> Header 1 <span class="pp">|</span> Header 2 <span class="pp">|</span> Header 3 <span class="pp">|</span></span>
+<span id="cb31-2"><a href="markdown.html#cb31-2" tabindex="-1"></a><span class="pp">|----------|----------|----------|</span></span>
+<span id="cb31-3"><a href="markdown.html#cb31-3" tabindex="-1"></a><span class="pp">|</span> Row 1 Col 1 <span class="pp">|</span> Row 1 Col 2 <span class="pp">|</span> Row 1 Col 3 <span class="pp">|</span></span>
+<span id="cb31-4"><a href="markdown.html#cb31-4" tabindex="-1"></a><span class="pp">|</span> Row 2 Col 1 <span class="pp">|</span> Row 2 Col 2 <span class="pp">|</span> Row 2 Col 3 <span class="pp">|</span></span></code></pre></div>
+<p><strong>Rendered:</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Header 1</th>
+<th>Header 2</th>
+<th>Header 3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Row 1 Col 1</td>
+<td>Row 1 Col 2</td>
+<td>Row 1 Col 3</td>
+</tr>
+<tr class="even">
+<td>Row 2 Col 1</td>
+<td>Row 2 Col 2</td>
+<td>Row 2 Col 3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="footnotes" class="section level2 unnumbered hasAnchor">
+<h2>Footnotes<a href="markdown.html#footnotes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb32-1"><a href="markdown.html#cb32-1" tabindex="-1"></a>Here is a simple footnote<span class="ot">[^1]</span>.</span>
+<span id="cb32-2"><a href="markdown.html#cb32-2" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="markdown.html#cb32-3" tabindex="-1"></a><span class="ot">[^1]: </span>This is the footnote.</span></code></pre></div>
+<p><strong>Rendered:</strong></p>
+<p>Here is a simple footnote<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> (you can find it at the end/bottom of this document).</p>
+</div>
+<div id="syntax-highlighting" class="section level2 unnumbered hasAnchor">
+<h2>Syntax Highlighting<a href="markdown.html#syntax-highlighting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Command:</strong></p>
+<pre markdown="1">
+```python
+def hello_world():
+    print("Hello, world!")
+```
+</pre>
+<p><strong>Rendered:</strong></p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="markdown.html#cb33-1" tabindex="-1"></a><span class="kw">def</span> hello_world():</span>
+<span id="cb33-2"><a href="markdown.html#cb33-2" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Hello, world!&quot;</span>)</span></code></pre></div>
+</div>
+<div id="math-expressions" class="section level2 unnumbered hasAnchor">
+<h2>Math Expressions<a href="markdown.html#math-expressions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb34-1"><a href="markdown.html#cb34-1" tabindex="-1"></a><span class="an">Inline math:</span><span class="co"> $E = mc^2$</span></span>
+<span id="cb34-2"><a href="markdown.html#cb34-2" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="markdown.html#cb34-3" tabindex="-1"></a>Block math:</span>
+<span id="cb34-4"><a href="markdown.html#cb34-4" tabindex="-1"></a>$$</span>
+<span id="cb34-5"><a href="markdown.html#cb34-5" tabindex="-1"></a>\frac{a}{b} = c</span>
+<span id="cb34-6"><a href="markdown.html#cb34-6" tabindex="-1"></a>$$</span></code></pre></div>
+<p><strong>Rendered:</strong></p>
+<p>Inline math: <span class="math inline">\(E = mc^2\)</span></p>
+<p>Block math:</p>
+<p><span class="math display">\[
+\frac{a}{b} = c
+\]</span></p>
+</div>
+<div id="escaping-characters" class="section level2 unnumbered hasAnchor">
+<h2>Escaping Characters<a href="markdown.html#escaping-characters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb35-1"><a href="markdown.html#cb35-1" tabindex="-1"></a><span class="an">Use the backslash to escape special characters:</span><span class="co"> \*literal asterisks\*</span></span></code></pre></div>
+<p><strong>Rendered:</strong></p>
+<p>Use the backslash to escape special characters: *literal asterisks*</p>
+</div>
+<div id="mermaid-diagrams" class="section level2 unnumbered hasAnchor">
+<h2>Mermaid Diagrams<a href="markdown.html#mermaid-diagrams" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Command:</strong></p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb36-1"><a href="markdown.html#cb36-1" tabindex="-1"></a><span class="in">```mermaid</span></span>
+<span id="cb36-2"><a href="markdown.html#cb36-2" tabindex="-1"></a><span class="in">graph TD;</span></span>
+<span id="cb36-3"><a href="markdown.html#cb36-3" tabindex="-1"></a><span class="in">    A--&gt;B;</span></span>
+<span id="cb36-4"><a href="markdown.html#cb36-4" tabindex="-1"></a><span class="in">    A--&gt;C;</span></span>
+<span id="cb36-5"><a href="markdown.html#cb36-5" tabindex="-1"></a><span class="in">    B--&gt;D;</span></span>
+<span id="cb36-6"><a href="markdown.html#cb36-6" tabindex="-1"></a><span class="in">    C--&gt;D;</span></span></code></pre></div>
+<pre><code>
+**Rendered:**
+
+```mermaid
+graph TD;
+    A--&gt;B;
+    A--&gt;C;
+    B--&gt;D;
+    C--&gt;D;</code></pre>
+<hr />
+<p>These additional advanced Markdown features allow you to create even more complex and sophisticated documents. Practice using these commands to further enhance your Markdown proficiency!</p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>This is the footnote.<a href="markdown.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="optimizing-r-workflows.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="generating-interactive-notebooks.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/MartinSchweinberger/ReproALS2024/edit/main/07-markdown.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/MartinSchweinberger/ReproALS2024/blob/main/07-markdown.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

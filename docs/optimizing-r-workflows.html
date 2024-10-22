@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Part 6 Optimizing R Workflows | Improving Transparency and Reproducible Results in Linguistics</title>
+  <meta name="description" content="Part 6 Optimizing R Workflows | Improving Transparency and Reproducible Results in Linguistics" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Part 6 Optimizing R Workflows | Improving Transparency and Reproducible Results in Linguistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Part 6 Optimizing R Workflows | Improving Transparency and Reproducible Results in Linguistics" />
+  
+  
+  
+
+<meta name="author" content="Martin Schweinberger and Sam Hames" />
+
+
+<meta name="date" content="2024-10-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="documentation.html"/>
+<link rel="next" href="markdown.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Transparency and Reproduciblity in Linguistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="basic-concepts.html"><a href="basic-concepts.html"><i class="fa fa-check"></i><b>2</b> Basic concepts</a>
+<ul>
+<li class="chapter" data-level="" data-path="basic-concepts.html"><a href="basic-concepts.html#what-is-data-management"><i class="fa fa-check"></i>What is Data Management?</a></li>
+<li class="chapter" data-level="" data-path="basic-concepts.html"><a href="basic-concepts.html#reproducibility-and-transparency"><i class="fa fa-check"></i>Reproducibility and Transparency</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="organizing-projects.html"><a href="organizing-projects.html"><i class="fa fa-check"></i><b>3</b> Organizing Projects</a>
+<ul>
+<li class="chapter" data-level="" data-path="organizing-projects.html"><a href="organizing-projects.html#folder-structures"><i class="fa fa-check"></i>Folder Structures</a></li>
+<li class="chapter" data-level="" data-path="organizing-projects.html"><a href="organizing-projects.html#folders-for-research-and-teaching"><i class="fa fa-check"></i>Folders for Research and Teaching</a></li>
+<li class="chapter" data-level="" data-path="organizing-projects.html"><a href="organizing-projects.html#shared-folder-structures"><i class="fa fa-check"></i>Shared Folder Structures</a></li>
+<li class="chapter" data-level="" data-path="organizing-projects.html"><a href="organizing-projects.html#file-naming-convention-fnc"><i class="fa fa-check"></i>File Naming Convention (FNC)</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-handling-and-management.html"><a href="data-handling-and-management.html"><i class="fa fa-check"></i><b>4</b> Data Handling and Management</a>
+<ul>
+<li class="chapter" data-level="" data-path="data-handling-and-management.html"><a href="data-handling-and-management.html#keeping-copies-and-the-3-2-1-rule"><i class="fa fa-check"></i>Keeping copies and the 3-2-1 Rule</a></li>
+<li class="chapter" data-level="" data-path="data-handling-and-management.html"><a href="data-handling-and-management.html#dealing-with-sensitive-data"><i class="fa fa-check"></i>Dealing with Sensitive Data</a></li>
+<li class="chapter" data-level="" data-path="data-handling-and-management.html"><a href="data-handling-and-management.html#managing-deidentification-ardc"><i class="fa fa-check"></i>Managing Deidentification (ARDC)</a></li>
+<li class="chapter" data-level="" data-path="data-handling-and-management.html"><a href="data-handling-and-management.html#data-as-publications"><i class="fa fa-check"></i>Data as publications</a></li>
+<li class="chapter" data-level="" data-path="data-handling-and-management.html"><a href="data-handling-and-management.html#software"><i class="fa fa-check"></i>Software</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="documentation.html"><a href="documentation.html"><i class="fa fa-check"></i><b>5</b> Documentation</a>
+<ul>
+<li class="chapter" data-level="" data-path="documentation.html"><a href="documentation.html#efficient-documentation"><i class="fa fa-check"></i>Efficient Documentation</a></li>
+<li class="chapter" data-level="" data-path="documentation.html"><a href="documentation.html#documentation-and-the-bus-factor"><i class="fa fa-check"></i>Documentation and the Bus Factor</a></li>
+<li class="chapter" data-level="" data-path="documentation.html"><a href="documentation.html#creating-an-onboarding-log"><i class="fa fa-check"></i>Creating an Onboarding Log</a></li>
+<li class="chapter" data-level="" data-path="documentation.html"><a href="documentation.html#reproducible-reports-and-notebooks"><i class="fa fa-check"></i>Reproducible reports and notebooks</a></li>
+<li class="chapter" data-level="" data-path="documentation.html"><a href="documentation.html#version-control-git"><i class="fa fa-check"></i>Version control (Git)</a></li>
+<li class="chapter" data-level="" data-path="documentation.html"><a href="documentation.html#digital-object-identifier-doi-and-persistent-identifier-pid"><i class="fa fa-check"></i>Digital Object Identifier (DOI) and Persistent identifier (PiD)</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="optimizing-r-workflows.html"><a href="optimizing-r-workflows.html"><i class="fa fa-check"></i><b>6</b> Optimizing R Workflows</a>
+<ul>
+<li class="chapter" data-level="" data-path="optimizing-r-workflows.html"><a href="optimizing-r-workflows.html#rproj"><i class="fa fa-check"></i>Rproj</a></li>
+<li class="chapter" data-level="" data-path="optimizing-r-workflows.html"><a href="optimizing-r-workflows.html#dependency-control-renv"><i class="fa fa-check"></i>Dependency Control (renv)</a></li>
+<li class="chapter" data-level="" data-path="optimizing-r-workflows.html"><a href="optimizing-r-workflows.html#version-control-with-git"><i class="fa fa-check"></i>Version Control with Git</a></li>
+<li class="chapter" data-level="" data-path="optimizing-r-workflows.html"><a href="optimizing-r-workflows.html#solving-path-issues-here"><i class="fa fa-check"></i>Solving path issues: here</a></li>
+<li class="chapter" data-level="" data-path="optimizing-r-workflows.html"><a href="optimizing-r-workflows.html#reproducible-randomness-set.seed"><i class="fa fa-check"></i>Reproducible randomness: set.seed</a></li>
+<li class="chapter" data-level="" data-path="optimizing-r-workflows.html"><a href="optimizing-r-workflows.html#tidy-data-principles"><i class="fa fa-check"></i>Tidy data principles</a></li>
+<li class="chapter" data-level="" data-path="optimizing-r-workflows.html"><a href="optimizing-r-workflows.html#how-to-minimize-storage-space"><i class="fa fa-check"></i>How to minimize storage space</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="markdown.html"><a href="markdown.html"><i class="fa fa-check"></i><b>7</b> Markdown</a>
+<ul>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#headings"><i class="fa fa-check"></i>Headings</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#headings-with-links"><i class="fa fa-check"></i>Headings with Links</a>
+<ul>
+<li class="chapter" data-level="7.0.1" data-path="markdown.html"><a href="markdown.html#heading-with-a-link"><i class="fa fa-check"></i><b>7.0.1</b> Heading with a Link</a></li>
+</ul></li>
+<li class="chapter" data-level="7.1" data-path="markdown.html"><a href="markdown.html#custom-ids-for-headings"><i class="fa fa-check"></i><b>7.1</b> Custom IDs for Headings</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="markdown.html"><a href="markdown.html#custom-id"><i class="fa fa-check"></i><b>7.1.1</b> Custom ID Heading</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#table-of-contents"><i class="fa fa-check"></i>Table of Contents</a></li>
+<li class="chapter" data-level="7.2" data-path="markdown.html"><a href="markdown.html#table-of-contents-1"><i class="fa fa-check"></i><b>7.2</b> Table of Contents</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#emphasis"><i class="fa fa-check"></i>Emphasis</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#strikethrough"><i class="fa fa-check"></i>Strikethrough</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#superscript-and-subscript"><i class="fa fa-check"></i>Superscript and Subscript</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#highlight"><i class="fa fa-check"></i>Highlight</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#emojis"><i class="fa fa-check"></i>Emojis</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#emoji-shortcodes"><i class="fa fa-check"></i>Emoji Shortcodes</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#lists"><i class="fa fa-check"></i>Lists</a>
+<ul>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#unordered-list"><i class="fa fa-check"></i>Unordered List</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#ordered-list"><i class="fa fa-check"></i>Ordered List</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#task-lists"><i class="fa fa-check"></i>Task Lists</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#advanced-task-lists"><i class="fa fa-check"></i>Advanced Task Lists</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#definition-lists"><i class="fa fa-check"></i>Definition Lists</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#nested-lists"><i class="fa fa-check"></i>Nested Lists</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#links"><i class="fa fa-check"></i>Links</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#images"><i class="fa fa-check"></i>Images</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#images-with-links"><i class="fa fa-check"></i>Images with Links</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#blockquotes"><i class="fa fa-check"></i>Blockquotes</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#blockquotes-with-multiple-paragraphs"><i class="fa fa-check"></i>Blockquotes with Multiple Paragraphs</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#code"><i class="fa fa-check"></i>Code</a>
+<ul>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#inline-code"><i class="fa fa-check"></i>Inline Code</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#code-block"><i class="fa fa-check"></i>Code Block</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#blockquotes-with-nested-elements"><i class="fa fa-check"></i>Blockquotes with Nested Elements</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#inline-html"><i class="fa fa-check"></i>Inline HTML</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#html-entities"><i class="fa fa-check"></i>HTML Entities</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#expandable-sections-details-tag"><i class="fa fa-check"></i>Expandable Sections (Details Tag)</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#horizontal-rule"><i class="fa fa-check"></i>Horizontal Rule</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#tables"><i class="fa fa-check"></i>Tables</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#advanced-tables"><i class="fa fa-check"></i>Advanced Tables</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#footnotes"><i class="fa fa-check"></i>Footnotes</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#syntax-highlighting"><i class="fa fa-check"></i>Syntax Highlighting</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#math-expressions"><i class="fa fa-check"></i>Math Expressions</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#escaping-characters"><i class="fa fa-check"></i>Escaping Characters</a></li>
+<li class="chapter" data-level="" data-path="markdown.html"><a href="markdown.html#mermaid-diagrams"><i class="fa fa-check"></i>Mermaid Diagrams</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="generating-interactive-notebooks.html"><a href="generating-interactive-notebooks.html"><i class="fa fa-check"></i><b>8</b> Generating Interactive Notebooks</a>
+<ul>
+<li class="chapter" data-level="" data-path="generating-interactive-notebooks.html"><a href="generating-interactive-notebooks.html#preparation-of-the-rmd"><i class="fa fa-check"></i>Preparation of the Rmd</a></li>
+<li class="chapter" data-level="" data-path="generating-interactive-notebooks.html"><a href="generating-interactive-notebooks.html#converting-your-rmd-into-a-jupyter-notebook"><i class="fa fa-check"></i>Converting your Rmd into a Jupyter notebook</a></li>
+<li class="chapter" data-level="" data-path="generating-interactive-notebooks.html"><a href="generating-interactive-notebooks.html#creating-a-github-repository-that-connects-to-binder"><i class="fa fa-check"></i>Creating a GitHub repository that connects to Binder</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="creating-bookdown-websites.html"><a href="creating-bookdown-websites.html"><i class="fa fa-check"></i><b>9</b> Creating Bookdown Websites</a></li>
+<li class="chapter" data-level="10" data-path="citation-and-session-info.html"><a href="citation-and-session-info.html"><i class="fa fa-check"></i><b>10</b> Citation and Session Info</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Improving Transparency and Reproducible Results in Linguistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="optimizing-r-workflows" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Part 6</span> Optimizing R Workflows<a href="optimizing-r-workflows.html#optimizing-r-workflows" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>While most researchers in the language sciences are somewhat familiar with R, workshops focusing on specific tasks, such as statistical analyses in R, are increasingly common. However, workshops dedicated to general proficiency in R are rare.</p>
+<p><img src="https://slcladal.github.io/images/rstudiologo.png" width="40%" style="float:right; padding:10px" /></p>
+<p>When discussing ‘working in R,’ I refer to concerns surrounding reproducible and efficient workflows, session management, and adherence to formatting conventions for R code. The subsequent sections will offer guidance on optimizing workflows and enhancing research practices to foster transparency, efficiency, and reproducibility.</p>
+<div id="rproj" class="section level2 unnumbered hasAnchor">
+<h2>Rproj<a href="optimizing-r-workflows.html#rproj" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If you’re utilizing RStudio, you can create a new R project, which is essentially a working directory identified by a <code>.RProj</code> file. When you open a project (either through ‘File/Open Project’ in RStudio or by double-clicking on the <code>.RProj</code> file outside of R), the working directory is automatically set to the location of the <code>.RProj</code> file.</p>
+<p><img src="https://slcladal.github.io/images/rproj.png" width="40%" style="float:right; padding:10px" /></p>
+<p>I highly recommend creating a new R Project at the outset of each research endeavor. Upon creating a new R project, promptly organize your directory by establishing folders to house your R code, data files, notes, and other project-related materials. This can be done outside of R on your computer or within the Files window of RStudio. For instance, consider creating a ‘R’ folder for your R code and a ‘data’ folder for your datasets.</p>
+<p>Prior to adopting R Projects, I used <code>setwd()</code> to set my working directory. However, this method has drawbacks as it requires specifying an absolute file path, which can lead to broken scripts and hinder collaboration and reproducibility efforts. Consequently, reliance on <code>setwd()</code> impedes the sharing and transparency of analyses and projects. By contrast, utilizing R Projects streamlines workflow management and facilitates reproducibility and collaboration.</p>
+</div>
+<div id="dependency-control-renv" class="section level2 unnumbered hasAnchor">
+<h2>Dependency Control (renv)<a href="optimizing-r-workflows.html#dependency-control-renv" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="https://slcladal.github.io/images/renv.png" width="40%" style="float:right; padding:10px" /></p>
+<p>The <code>renv</code> package introduces a novel approach to enhancing the independence of R projects by eliminating external dependencies. By creating a dedicated library within your project, <code>renv</code> ensures that your R project operates autonomously from your personal library. Consequently, when sharing your project, the associated packages are automatically included.</p>
+<p><code>renv</code> aims to provide a robust and stable alternative to the <code>packrat</code> package, which, in my experience, fell short of expectations. Having utilized <code>renv</code> myself, I found it to be user-friendly and reliable. Although the initial generation of the local library may require some time, it seamlessly integrates into workflows without causing any disruptions. Overall, <code>renv</code> is highly recommended for simplifying the sharing of R projects, thereby enhancing transparency and reproducibility.</p>
+<p>One of <code>renv</code>’s core principles is to preserve existing workflows, ensuring that they function as before while effectively isolating the R dependencies of your project, including package versioning.</p>
+<p>For more information on <code>renv</code> and its functionalities, as well as guidance on its implementation, refer to the <a href="https://rstudio.github.io/renv/articles/renv.html">official documentation</a>.</p>
+</div>
+<div id="version-control-with-git" class="section level2 unnumbered hasAnchor">
+<h2>Version Control with Git<a href="optimizing-r-workflows.html#version-control-with-git" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="https://slcladal.github.io/images/gitgithub.png" width="40%" style="float:right; padding:10px" /></p>
+<p><strong>Getting started with Git</strong></p>
+<p>To connect your Rproject with GitHub, <strong>you need to have Git installed</strong> (if you have not yet downloaded and installed Git, simply search for <code>download git</code> in your favorite search engine and follow the instructions) and <strong>you need to have a GitHub account</strong>. If you do not have a GitHub account, <a href="https://www.youtube.com/watch?v=pYTifWe6M8I">here</a> is a video tutorial showing how you can do this. If you have trouble with this, you can also check out <em>Happy Git and GitHub for the useR</em> at <code>happygitwithr.com</code>.</p>
+<p><img src="https://slcladal.github.io/images/gitdownload.png" width="40%" style="float:right; padding:10px" /></p>
+<p>Just as a word of warning: when I set up my connection to Git and GitHUb things worked very differently, so things may be a bit different on your machine. In any case, I highly recommend <a href="https://www.youtube.com/watch?v=r5_v5f6128M">this YouTube tutorial</a> which shows how to connect to Git and GitHub using the <code>usethis</code> package or <a href="https://www.youtube.com/watch?v=kL6L2MNqPHg&amp;t=716s">this, slightly older, YouTube tutorial</a> on how to get going with Git and GitHub when working with RStudio.</p>
+<p><strong>Old school</strong></p>
+<p>While many people use the <code>usethis</code> package to connect RStudio to GitHub, I still use a somewhat <em>old school</em> way to connect my projects with GitHub. I have decided to show you how to connect RStudio to GitHub using this method, as I actually think it is easier once you have installed Git and created a gitHub account.</p>
+<p>Before you can use Git with R, you need to tell RStudio that you want to use Git. To do this, go to <code>Tools</code>, then <code>Global Options</code> and then to <code>Git/SVN</code> and make sure that the box labeled <code>Enable version control interface for RStudio projects.</code> is checked. You need to then browse to the Git executable file (for Window’s users this is called the <code>Git.exe</code> file).</p>
+<p><br></p>
+<p><img src="https://slcladal.github.io/images/globaloptionsr.png" width="95%" style="float:right; padding:10px" /></p>
+<p><br></p>
+<p>Now, we can connect our project to Git (not to GitHub yet). To do this, go to <code>Tools</code>, then to <code>Project Options...</code> and in the <code>Git/SVN</code> tab, change <code>Version Control System</code> to <code>Git</code> (from <code>None</code>). Once you have accepted these changes, a new tab called <code>Git</code> appears in the upper right pane of RStudio (<em>you may need to / be asked to restart RStudio at this point</em>). You can now commit files and changes in files to Git.</p>
+<p><img src="https://slcladal.github.io/images/globaloptionsgit.png" width="50%" style="float:right; padding:10px" /></p>
+<p>To commit files, go to the Git tab and check the boxes next to the files you would like to commit (this is called <em>staging</em>; meaning that these files are now ready to be committed). Then, click on <code>Commit</code> and enter a message in the pop-up window that appears. Finally, click on the <code>commit</code> button under the message window.</p>
+<p><strong>Connecting your Rproj with GitHub</strong></p>
+<p>To integrate your R project with GitHub, start by navigating to your GitHub page and create a new repository (repo). You can name it anything you like; for instance, let’s call it <code>test</code>. To create a new repository on GitHub, simply click on the <code>New</code> icon and then select <code>New Repository</code>. While creating the repository, I recommend checking the option to ‘Add a README’, where you can provide a brief description of the contents, although it’s not mandatory.</p>
+<p>Once you’ve created the GitHub repo, the next step is to connect it to your local computer. This is achieved by ‘cloning’ the repository. Click on the green <code>Code</code> icon on your GitHub repository page, and from the dropdown menu that appears, copy the URL provided under the <code>clone with HTTPS</code> section.</p>
+<p>Now, open your terminal (located between <code>Console</code> and <code>Jobs</code> in RStudio) and navigate to the directory where you want to store your project files. Use the <code>cd</code> command to change directories if needed. Once you’re in the correct directory, include the URL you copied from the git repository after the command <code>git remote add origin</code>. This sets up the connection between your local directory and the GitHub repository.</p>
+<p>Next, execute the command <code>git branch -M main</code> to rename the default branch to <code>main</code>. This step is necessary to align with recent changes in GitHub’s naming conventions, merging the previous <code>master</code> and <code>main</code> branches.</p>
+<p>Finally, push your local files to the remote GitHub repository by using the command <code>git push -u origin main</code>. This command uploads your files to GitHub, making them accessible to collaborators and ensuring version control for your project.</p>
+<p>Following these steps ensures seamless integration between your R project and GitHub, facilitating collaboration, version control, and project management.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="optimizing-r-workflows.html#cb1-1" tabindex="-1"></a><span class="co"># initiate the upstream tracking of the project on the GitHub repo</span></span>
+<span id="cb1-2"><a href="optimizing-r-workflows.html#cb1-2" tabindex="-1"></a>git remote add origin https<span class="sc">:</span><span class="er">//</span>github.com<span class="sc">/</span>YourGitHUbUserName<span class="sc">/</span>YouGitHubRepositoryName.git</span>
+<span id="cb1-3"><a href="optimizing-r-workflows.html#cb1-3" tabindex="-1"></a><span class="co"># set main as main branch (rather than master)</span></span>
+<span id="cb1-4"><a href="optimizing-r-workflows.html#cb1-4" tabindex="-1"></a>git branch <span class="sc">-</span>M main</span>
+<span id="cb1-5"><a href="optimizing-r-workflows.html#cb1-5" tabindex="-1"></a><span class="co"># push content to main</span></span>
+<span id="cb1-6"><a href="optimizing-r-workflows.html#cb1-6" tabindex="-1"></a>git push <span class="sc">-</span>u origin main</span></code></pre></div>
+<p>We can then commit changes and push them to the remote GitHub repo.</p>
+<p>You can then go to your GitHub repo and check if the documents that we pushed are now in the remote repo.</p>
+<p>From now on, you can simply commit all changes that you make to the GitHub repo associated with that Rproject. Other projects can, of course, be connected and push to other GitHub repos.</p>
+</div>
+<div id="solving-path-issues-here" class="section level2 unnumbered hasAnchor">
+<h2>Solving path issues: here<a href="optimizing-r-workflows.html#solving-path-issues-here" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The primary objective of the here package is to streamline file referencing within project-oriented workflows. Unlike the conventional approach of using setwd(), which is susceptible to fragility and heavily reliant on file organization, here leverages the top-level directory of a project to construct file paths effortlessly.</p>
+<p>This approach significantly enhances the robustness of your projects, ensuring that file paths remain functional even if the project is relocated or accessed from a different computer. Moreover, the here package mitigates compatibility issues when transitioning between different operating systems, such as Mac and Windows, which traditionally require distinct path specifications.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="optimizing-r-workflows.html#cb2-1" tabindex="-1"></a><span class="co"># define path</span></span>
+<span id="cb2-2"><a href="optimizing-r-workflows.html#cb2-2" tabindex="-1"></a>example_path_full <span class="ot">&lt;-</span> <span class="st">&quot;D:</span><span class="sc">\\</span><span class="st">Uni</span><span class="sc">\\</span><span class="st">Konferenzen</span><span class="sc">\\</span><span class="st">ISLE</span><span class="sc">\\</span><span class="st">ISLE_2021</span><span class="sc">\\</span><span class="st">isle6_reprows/repro.Rmd&quot;</span></span>
+<span id="cb2-3"><a href="optimizing-r-workflows.html#cb2-3" tabindex="-1"></a><span class="co"># show path</span></span>
+<span id="cb2-4"><a href="optimizing-r-workflows.html#cb2-4" tabindex="-1"></a>example_path_full</span></code></pre></div>
+<pre><code>## [1] &quot;D:\\Uni\\Konferenzen\\ISLE\\ISLE_2021\\isle6_reprows/repro.Rmd&quot;</code></pre>
+<p>With the <code>here</code> package, the path starts in folder where the Rproj file is. As the Rmd file is in the same folder, we only need to specify the Rmd file and the <code>here</code> package will add the rest.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="optimizing-r-workflows.html#cb4-1" tabindex="-1"></a><span class="co"># load package</span></span>
+<span id="cb4-2"><a href="optimizing-r-workflows.html#cb4-2" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb4-3"><a href="optimizing-r-workflows.html#cb4-3" tabindex="-1"></a><span class="co"># define path using here</span></span>
+<span id="cb4-4"><a href="optimizing-r-workflows.html#cb4-4" tabindex="-1"></a>example_path_here <span class="ot">&lt;-</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;repro.Rmd&quot;</span>)</span>
+<span id="cb4-5"><a href="optimizing-r-workflows.html#cb4-5" tabindex="-1"></a><span class="co">#show path</span></span>
+<span id="cb4-6"><a href="optimizing-r-workflows.html#cb4-6" tabindex="-1"></a>example_path_here</span></code></pre></div>
+<pre><code>## [1] &quot;C:/Users/uqmschw5/OneDrive - The University of Queensland/Desktop/ReproALS2024/repro.Rmd&quot;</code></pre>
+</div>
+<div id="reproducible-randomness-set.seed" class="section level2 unnumbered hasAnchor">
+<h2>Reproducible randomness: set.seed<a href="optimizing-r-workflows.html#reproducible-randomness-set.seed" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <code>set.seed</code> function in R sets the seed of R‘s random number generator, which is useful for creating simulations or random objects that can be reproduced. This means that when you call a function that uses some form of randomness (e.g. when using random forests), using the <code>set.seed</code> function allows you to replicate results.</p>
+<p>Below is an example of what I mean. First, we generate a random sample from a vector.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="optimizing-r-workflows.html#cb6-1" tabindex="-1"></a>numbers <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb6-2"><a href="optimizing-r-workflows.html#cb6-2" tabindex="-1"></a>randomnumbers1 <span class="ot">&lt;-</span> <span class="fu">sample</span>(numbers, <span class="dv">10</span>)</span>
+<span id="cb6-3"><a href="optimizing-r-workflows.html#cb6-3" tabindex="-1"></a>randomnumbers1</span></code></pre></div>
+<pre><code>##  [1]  8  4  3  6  7  5  1 10  9  2</code></pre>
+<p>We now draw another random sample using the same <code>sample</code> call.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="optimizing-r-workflows.html#cb8-1" tabindex="-1"></a>randomnumbers2 <span class="ot">&lt;-</span> <span class="fu">sample</span>(numbers, <span class="dv">10</span>)</span>
+<span id="cb8-2"><a href="optimizing-r-workflows.html#cb8-2" tabindex="-1"></a>randomnumbers2</span></code></pre></div>
+<pre><code>##  [1]  2  8  6  3  5  1  7  9 10  4</code></pre>
+<p>As you can see, we now have a different string of numbers although we used the same call. However, when we set the seed and then generate a string of numbers as show below, we create a reproducible random sample.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="optimizing-r-workflows.html#cb10-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb10-2"><a href="optimizing-r-workflows.html#cb10-2" tabindex="-1"></a>randomnumbers3 <span class="ot">&lt;-</span> <span class="fu">sample</span>(numbers, <span class="dv">10</span>)</span>
+<span id="cb10-3"><a href="optimizing-r-workflows.html#cb10-3" tabindex="-1"></a>randomnumbers3</span></code></pre></div>
+<pre><code>##  [1]  3 10  2  8  6  9  1  7  5  4</code></pre>
+<p>To show that we can reproduce this sample, we call the same seed and then generate another random sample which will be the same as the previous one because we have set the seed.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="optimizing-r-workflows.html#cb12-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb12-2"><a href="optimizing-r-workflows.html#cb12-2" tabindex="-1"></a>randomnumbers4 <span class="ot">&lt;-</span> <span class="fu">sample</span>(numbers, <span class="dv">10</span>)</span>
+<span id="cb12-3"><a href="optimizing-r-workflows.html#cb12-3" tabindex="-1"></a>randomnumbers4</span></code></pre></div>
+<pre><code>##  [1]  3 10  2  8  6  9  1  7  5  4</code></pre>
+</div>
+<div id="tidy-data-principles" class="section level2 unnumbered hasAnchor">
+<h2>Tidy data principles<a href="optimizing-r-workflows.html#tidy-data-principles" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The same (underlying) data can be represented in multiple ways. The following three tables are show the same data but in different ways.</p>
+<table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:tb1">Table 6.1: </span><span id="tab:tb1">Table 6.2: </span>Table 1.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+country
+</th>
+<th style="text-align:left;">
+continent
+</th>
+<th style="text-align:right;">
+2002
+</th>
+<th style="text-align:right;">
+2007
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Afghanistan
+</td>
+<td style="text-align:left;">
+Asia
+</td>
+<td style="text-align:right;">
+42.129
+</td>
+<td style="text-align:right;">
+43.828
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Australia
+</td>
+<td style="text-align:left;">
+Oceania
+</td>
+<td style="text-align:right;">
+80.370
+</td>
+<td style="text-align:right;">
+81.235
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+China
+</td>
+<td style="text-align:left;">
+Asia
+</td>
+<td style="text-align:right;">
+72.028
+</td>
+<td style="text-align:right;">
+72.961
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Germany
+</td>
+<td style="text-align:left;">
+Europe
+</td>
+<td style="text-align:right;">
+78.670
+</td>
+<td style="text-align:right;">
+79.406
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tanzania
+</td>
+<td style="text-align:left;">
+Africa
+</td>
+<td style="text-align:right;">
+49.651
+</td>
+<td style="text-align:right;">
+52.517
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:tb2">Table 6.3: </span><span id="tab:tb2">Table 6.4: </span>Table 2.
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+year
+</th>
+<th style="text-align:right;">
+Afghanistan (Asia)
+</th>
+<th style="text-align:right;">
+Australia (Oceania)
+</th>
+<th style="text-align:right;">
+China (Asia)
+</th>
+<th style="text-align:right;">
+Germany (Europe)
+</th>
+<th style="text-align:right;">
+Tanzania (Africa)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+2002
+</td>
+<td style="text-align:right;">
+42.129
+</td>
+<td style="text-align:right;">
+80.370
+</td>
+<td style="text-align:right;">
+72.028
+</td>
+<td style="text-align:right;">
+78.670
+</td>
+<td style="text-align:right;">
+49.651
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2007
+</td>
+<td style="text-align:right;">
+43.828
+</td>
+<td style="text-align:right;">
+81.235
+</td>
+<td style="text-align:right;">
+72.961
+</td>
+<td style="text-align:right;">
+79.406
+</td>
+<td style="text-align:right;">
+52.517
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:tb3">Table 6.5: </span><span id="tab:tb3">Table 6.6: </span>Table 3.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+country
+</th>
+<th style="text-align:right;">
+year
+</th>
+<th style="text-align:left;">
+continent
+</th>
+<th style="text-align:right;">
+lifeExp
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Afghanistan
+</td>
+<td style="text-align:right;">
+2002
+</td>
+<td style="text-align:left;">
+Asia
+</td>
+<td style="text-align:right;">
+42.129
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Afghanistan
+</td>
+<td style="text-align:right;">
+2007
+</td>
+<td style="text-align:left;">
+Asia
+</td>
+<td style="text-align:right;">
+43.828
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Australia
+</td>
+<td style="text-align:right;">
+2002
+</td>
+<td style="text-align:left;">
+Oceania
+</td>
+<td style="text-align:right;">
+80.370
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Australia
+</td>
+<td style="text-align:right;">
+2007
+</td>
+<td style="text-align:left;">
+Oceania
+</td>
+<td style="text-align:right;">
+81.235
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+China
+</td>
+<td style="text-align:right;">
+2002
+</td>
+<td style="text-align:left;">
+Asia
+</td>
+<td style="text-align:right;">
+72.028
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+China
+</td>
+<td style="text-align:right;">
+2007
+</td>
+<td style="text-align:left;">
+Asia
+</td>
+<td style="text-align:right;">
+72.961
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Germany
+</td>
+<td style="text-align:right;">
+2002
+</td>
+<td style="text-align:left;">
+Europe
+</td>
+<td style="text-align:right;">
+78.670
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Germany
+</td>
+<td style="text-align:right;">
+2007
+</td>
+<td style="text-align:left;">
+Europe
+</td>
+<td style="text-align:right;">
+79.406
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tanzania
+</td>
+<td style="text-align:right;">
+2002
+</td>
+<td style="text-align:left;">
+Africa
+</td>
+<td style="text-align:right;">
+49.651
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tanzania
+</td>
+<td style="text-align:right;">
+2007
+</td>
+<td style="text-align:left;">
+Africa
+</td>
+<td style="text-align:right;">
+52.517
+</td>
+</tr>
+</tbody>
+</table>
+<p>Table 3 should be the easiest to parse and understand. This is so because only Table 3 is <em>tidy</em>. Unfortunately, however, most data that you will encounter will be untidy. There are two main reasons:</p>
+<ul>
+<li><p>Most people aren’t familiar with the principles of tidy data, and it’s hard to derive them yourself unless you spend a lot of time working with data.</p></li>
+<li><p>Data is often organised to facilitate some use other than analysis. For example, data is often organised to make entry as easy as possible.</p></li>
+</ul>
+<p>This means that for most real analyses, you’ll need to do some tidying. The first step is always to figure out what the variables and observations are. Sometimes this is easy; other times you’ll need to consult with the people who originally generated the data. The second step is to resolve one of two common problems:</p>
+<ul>
+<li><p>One variable might be spread across multiple columns.</p></li>
+<li><p>One observation might be scattered across multiple rows.</p></li>
+</ul>
+<p>To avoid structuring in ways that make it harder to parse, there are three interrelated principles which make a data set tidy:</p>
+<ul>
+<li><p>Each variable must have its own column.</p></li>
+<li><p>Each observation must have its own row.</p></li>
+<li><p>Each value must have its own cell.</p></li>
+</ul>
+<p>An additional advantage of tidy data is that is can be transformed more easily into any other format when needed.</p>
+</div>
+<div id="how-to-minimize-storage-space" class="section level2 unnumbered hasAnchor">
+<h2>How to minimize storage space<a href="optimizing-r-workflows.html#how-to-minimize-storage-space" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Most people use or rely on data that comes in spreadsheets and use software such as Microsoft Excel or OpenOffice Calc. However, spreadsheets produced by these software applications take up a lot of storage space.</p>
+<p>One way to minimize the space, that your data takes up, is to copy the data and paste it into a simple editor or txt-file. The good thing about txt files is that they take up only very little space and they can be viewed easily so that you can open the file to see what the data looks like. You could then delete the spread sheet because you can copy and paste the content of the txt file right back into a spread sheet when you need it.</p>
+<p>If you work with R, you may also consider to save your data as .rda files which is a very efficient way to save and story data in an R environment</p>
+<p>Below is an example for how you can load, process, and save your data as .rda in RStudio.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="optimizing-r-workflows.html#cb14-1" tabindex="-1"></a><span class="co"># load data</span></span>
+<span id="cb14-2"><a href="optimizing-r-workflows.html#cb14-2" tabindex="-1"></a>lmm <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">&quot;https://slcladal.github.io/data/lmmdata.txt&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb14-3"><a href="optimizing-r-workflows.html#cb14-3" tabindex="-1"></a><span class="co"># convert strings to factors</span></span>
+<span id="cb14-4"><a href="optimizing-r-workflows.html#cb14-4" tabindex="-1"></a>lmm <span class="ot">&lt;-</span> lmm <span class="sc">%&gt;%</span></span>
+<span id="cb14-5"><a href="optimizing-r-workflows.html#cb14-5" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Genre =</span> <span class="fu">factor</span>(Genre),</span>
+<span id="cb14-6"><a href="optimizing-r-workflows.html#cb14-6" tabindex="-1"></a>                <span class="at">Text =</span> <span class="fu">factor</span>(Text),</span>
+<span id="cb14-7"><a href="optimizing-r-workflows.html#cb14-7" tabindex="-1"></a>                <span class="at">Region =</span> <span class="fu">factor</span>(Region))</span>
+<span id="cb14-8"><a href="optimizing-r-workflows.html#cb14-8" tabindex="-1"></a><span class="co"># save data</span></span>
+<span id="cb14-9"><a href="optimizing-r-workflows.html#cb14-9" tabindex="-1"></a>base<span class="sc">::</span><span class="fu">saveRDS</span>(lmm, <span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;lmm_out.rda&quot;</span>))</span>
+<span id="cb14-10"><a href="optimizing-r-workflows.html#cb14-10" tabindex="-1"></a><span class="co"># remove lmm object</span></span>
+<span id="cb14-11"><a href="optimizing-r-workflows.html#cb14-11" tabindex="-1"></a><span class="fu">rm</span>(lmm)</span>
+<span id="cb14-12"><a href="optimizing-r-workflows.html#cb14-12" tabindex="-1"></a><span class="co"># load .rda data</span></span>
+<span id="cb14-13"><a href="optimizing-r-workflows.html#cb14-13" tabindex="-1"></a>lmm  <span class="ot">&lt;-</span> base<span class="sc">::</span><span class="fu">readRDS</span>(<span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;lmm_out.rda&quot;</span>))</span>
+<span id="cb14-14"><a href="optimizing-r-workflows.html#cb14-14" tabindex="-1"></a><span class="co"># or from web</span></span>
+<span id="cb14-15"><a href="optimizing-r-workflows.html#cb14-15" tabindex="-1"></a>lmm  <span class="ot">&lt;-</span> base<span class="sc">::</span><span class="fu">readRDS</span>(<span class="fu">url</span>(<span class="st">&quot;https://slcladal.github.io/data/lmm.rda&quot;</span>, <span class="st">&quot;rb&quot;</span>))</span>
+<span id="cb14-16"><a href="optimizing-r-workflows.html#cb14-16" tabindex="-1"></a><span class="co"># inspect data</span></span>
+<span id="cb14-17"><a href="optimizing-r-workflows.html#cb14-17" tabindex="-1"></a><span class="fu">str</span>(lmm)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    537 obs. of  5 variables:
+##  $ Date        : int  1736 1711 1808 1878 1743 1908 1906 1897 1785 1776 ...
+##  $ Genre       : Factor w/ 16 levels &quot;Bible&quot;,&quot;Biography&quot;,..: 13 4 10 4 4 4 3 9 9 3 ...
+##  $ Text        : Factor w/ 271 levels &quot;abott&quot;,&quot;albin&quot;,..: 2 6 12 16 17 20 20 24 26 27 ...
+##  $ Prepositions: num  166 140 131 151 146 ...
+##  $ Region      : Factor w/ 2 levels &quot;North&quot;,&quot;South&quot;: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+<p>To compare, the <code>lmmdata.txt</code> requires 19.2KB while the <code>lmmdata.rda</code> only requires 5.2KB (and only 4.1KB with <em>xz</em> compression). If stored as an Excel spreadsheet, the same file requires 28.6KB.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="documentation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="markdown.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/MartinSchweinberger/ReproALS2024/edit/main/06-optimizing.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/MartinSchweinberger/ReproALS2024/blob/main/06-optimizing.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

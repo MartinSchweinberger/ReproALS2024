@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Improving Transparency and Reproducible Results in Linguistics</title>
-  <meta name="description" content="Improving Transparency and Reproducible Results in Linguistics" />
+  <title>Part 9 Creating Bookdown Websites | Improving Transparency and Reproducible Results in Linguistics</title>
+  <meta name="description" content="Part 9 Creating Bookdown Websites | Improving Transparency and Reproducible Results in Linguistics" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Improving Transparency and Reproducible Results in Linguistics" />
+  <meta property="og:title" content="Part 9 Creating Bookdown Websites | Improving Transparency and Reproducible Results in Linguistics" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Improving Transparency and Reproducible Results in Linguistics" />
+  <meta name="twitter:title" content="Part 9 Creating Bookdown Websites | Improving Transparency and Reproducible Results in Linguistics" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="basic-concepts.html"/>
+<link rel="prev" href="generating-interactive-notebooks.html"/>
+<link rel="next" href="citation-and-session-info.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -258,32 +258,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Improving Transparency and Reproducible Results in Linguistics</h1>
-<p class="author"><em>Martin Schweinberger and Sam Hames</em></p>
-<p class="date"><em>2024-10-22</em></p>
-</div>
-<div id="introduction" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Part 1</span> Introduction<a href="index.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Masterclass for the 2024 Annual Meeting of the Australian Linguistics Society (ALS2024), Australian National University, 26-29 November 2024</p>
-<p><img src="https://slcladal.github.io/images/uq1.jpg" width="100%" /></p>
-<p>This ALS2024 masterclass introduces measures that help to improve transparency and produce reproducible results in linguistics. To this aim, this ALS2024 masterclass discusses basic data management techniques, version control measures, and issues relating to reproducible research.</p>
-<p><img src="https://slcladal.github.io/images/reprocicle.png" width="40%" style="float:right; padding:10px" /></p>
-<p>This ALS2024 masterclass is designed to provide essential guidance on data management, transparency, and reproducibility for individuals working with language data. While it is accessible to all users, it focuses particularly on beginners and intermediate users of R, aiming to enhance their data management skills and utilize RStudio to make their analyses more transparent and reproducible.</p>
-<p>The objective of this ALS2024 masterclass is to demonstrate fundamental data management strategies and exemplify selected methods that improve the reproducibility of analytic workflows. By following this ALS2024 masterclass, users will learn to implement best practices in data management, ensure their workflows are transparent, and make their results reproducible, thereby increasing the reliability and credibility of their research.</p>
-<p>Furthermore, the ALS2024 masterclass will cover essential techniques such as version control with Git, using R Markdown for creating dynamic documents, strategies for organizing and documenting your code effectively, developing interactive Jupyter notebooks, and creating eBooks that are accessible via any browser. These methods are crucial for creating analyses that others can easily understand, verify, and build upon. By adopting these practices, you contribute to a more open and collaborative scientific community.</p>
-<div class="warning" style="padding:0.1em; background-color:#f2f2f2; color:#51247a">
-<span>
-<p style="margin-top:1em; text-align:center">
-The entire R Notebook for the ALS2024 masterclass can be downloaded <a href="https://slcladal.github.io/content/repro.Rmd"><strong>here</strong></a>. If you want to render the R Notebook on your machine, i.e. knitting the document to html or a pdf, you need to make sure that you have R and RStudio installed and you also need to download the <a href="https://slcladal.github.io/content/bibliography.bib"><strong>bibliography file</strong></a> and store it in the same folder where you store the Rmd file. <br>
-</p>
-<p style="margin-left:1em;">
-</p>
-<p></span></p>
-</div>
-<p><br></p>
-<p>In data science or when working with data, issues relating to organizing files and folders, managing data and projects, avoiding data loss, and efficient work flows are essential. The idea behind this ALS2024 masterclass is to address this issue and provide advice on how to handle data and creating efficient workflows.</p>
-<p>Some of the contents of this ALS2024 masterclass build on the <a href="https://web.library.uq.edu.au/research-tools-techniques/digital-essentials"><em>Digital Essentials module</em></a> that is offered by the UQ library, the <em>Reproducible Research resources</em> (created by Griffith University’s Library and eResearch Services), and on Amanda Miotto’s <a href="https://github.com/amandamiotto/Reproducible-Research-Things">Reproducible Reseach Things</a> (see also <a href="https://guereslib.github.io/Reproducible-Research-Things/">here</a> for an alternative version and <a href="https://github.com/guereslib/Reproducible-Research-Things">here for the GitHub repo</a>). You can find additional information on all things relating to computers, the digital world, and computer safety in the <a href="https://web.library.uq.edu.au/research-tools-techniques/digital-essentials"><em>Digital Essentials</em> course</a> that is part of UQ’s library resources.</p>
+<div id="creating-bookdown-websites" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Part 9</span> Creating Bookdown Websites<a href="creating-bookdown-websites.html#creating-bookdown-websites" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Generating webpages in RStudio and via GitHub is very easy to do and offers various options for researchers and teachers. Here, I’ll outline the process I used to create an online webscript, primarily relying on resources and documentation provided by GitHub user jtr13.</p>
+<ol style="list-style-type: decimal">
+<li><p>Log in to GitHub.</p></li>
+<li><p>Visit <a href="https://github.com/jtr13/bookdown-template">https://github.com/jtr13/bookdown-template</a>.</p></li>
+<li><p>Click on <em>Use this template</em>.</p></li>
+<li><p>On your repository’s home page, navigate to <em>Settings</em>. Then, go to the <em>Pages</em> section on the left. Under <strong>Build and Deployment</strong>, set <strong>Source</strong> to <em>Deploy from a branch</em> and <strong>Branch</strong> to <strong>main</strong> with <strong>/docs</strong> folder. Click Save. A box will appear above the <strong>Build and Deployment</strong> section with your book’s URL. Copy the URL.</p></li>
+<li><p>Near “About” on the home page of your repo, click the gear button and paste your book URL into the <strong>Website</strong> field that appears on the right.</p></li>
+<li><p>Click the green Code button and copy the HTTPS link, formatted like this: <code>https://github.com/[USERNAME]/[REPO NAME].git</code>.</p></li>
+<li><p>Clone your new repo in RStudio via <em>File</em> -&gt; <em>New Project</em> -&gt; <em>Version Control</em> -&gt; <em>Git</em>. Paste the link from the previous step in the Repository URL box.</p></li>
+<li><p>In <code>index.Rmd</code>, replace “YOUR TITLE HERE” with your title.</p></li>
+<li><p>In <code>index.Rmd</code>, replace “YOUR NAMES HERE” with your names.</p></li>
+<li><p>In <code>_bookdown.yml</code>, replace “YOUR GITHUB USERNAME” with your GitHub username in the two instances.</p></li>
+<li><p>In <code>_bookdown.yml</code>, replace “YOUR GITHUB REPO” with your GitHub repo name in the two instances. Note that steps 3 and 4 provide links to the <code>.Rmd</code> files of your project for editing and viewing. Update these file paths if you move your <code>.Rmd</code> files. Once your book is rendered, test that the edit (pen) and view (eye) buttons work.</p></li>
+<li><p>In <code>_output.yml</code>, change “YOUR SHORT TITLE” to a shortened version of your title. Leave the “after:” line indicating that the book was published with bookdown unchanged.</p></li>
+<li><p>Install <strong>bookdown</strong> with <code>install.packages("bookdown")</code>. If you already have it, update to the latest version.</p></li>
+<li><p>Render locally with <code>bookdown::render_book("index.Rmd")</code> or by clicking the <em>Build book</em> button in the Build tab.</p></li>
+<li><p>Use <code>browseURL("docs/index.html")</code> to view your book locally or open <code>index.html</code> in a browser.</p></li>
+<li><p>If everything looks good, commit and push all changed files to GitHub. Note that you’ll need to repeat steps 2 and 4 every time you wish to update the online book.</p></li>
+<li><p>Edit README (GitHub or RStudio): Once you’ve completed these steps, delete the content of this <strong>README</strong> and add a brief description of your project with a link to the book URL.</p></li>
+</ol>
 
 </div>
             </section>
@@ -291,8 +287,8 @@ The entire R Notebook for the ALS2024 masterclass can be downloaded <a href="htt
           </div>
         </div>
       </div>
-
-<a href="basic-concepts.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="generating-interactive-notebooks.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="citation-and-session-info.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -323,7 +319,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/MartinSchweinberger/ReproALS2024/edit/main/index.Rmd",
+"link": "https://github.com/MartinSchweinberger/ReproALS2024/edit/main/09-websites.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -331,7 +327,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/MartinSchweinberger/ReproALS2024/blob/main/index.Rmd",
+"link": "https://github.com/MartinSchweinberger/ReproALS2024/blob/main/09-websites.Rmd",
 "text": null
 },
 "download": null,
